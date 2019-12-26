@@ -19,6 +19,16 @@ Or install it yourself as:
 
     $ gem install ebanq_api
 
+## Usage
+
+Before you start making the requests to EBANQ API provide the `base_url` using the configuration
+wrapping. 
+```ruby
+EbanqApi.config do |config|
+  config.base_url = 'http://yourebanqdomain.com'
+end
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/agilie/ebanq_api.

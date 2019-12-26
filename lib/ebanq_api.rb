@@ -2,11 +2,9 @@
 
 require 'ebanq_api/version'
 require 'ebanq_api/client'
+require 'ebanq_api/auth'
+require 'ebanq_api/configuration'
 
 module EbanqApi
-  class ServerError < StandardError; end
-  class NotFoundError < StandardError; end
-  class BadRequestError < StandardError; end
-  class UnauthorizedError < StandardError; end
-
+  extend Configuration
 end

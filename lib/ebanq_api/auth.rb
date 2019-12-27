@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require 'ebanq_api/client'
+require 'ebanq_api/api_paths'
 
 module EbanqApi
   ##
-  # This class represents an auth block of Ebanq REST Api.
+  # This class represents an auth functional of Ebanq REST Api.
   class Auth
-    AUTH_API_PATH = 'api/v1/auth'
-
+    include ApiPaths
     # Declares an client instance.
     def initialize(client)
       @client = client
@@ -31,29 +31,6 @@ module EbanqApi
       }
 
       @client.make_request :post, auth_path('login'), values
-    end
-
-    # Get user profile data.
-    # /api/v1/auth/{uid}
-    #
-    # ==== Attributes
-    #
-    # * +uid+ (required) - The id of the user
-    def profile_data(uid)
-      @client.make_request :get, auth_path(uid)
-    end
-
-    # Update user profile data
-    # /api/v1/auth/{uid}
-    #
-    # ==== Attributes
-    #
-    # * +uid+ (required) - The id of the user
-    # * +fields+ (required) - hash of params which needs to update,
-    # e.g. {first_name: 'John', last_name: 'Doe'}
-    def update_profile(uid, fields)
-      @client.make_request :post,
-                           auth_path(uid), fields
     end
 
     # Login a user for a new session using token and secret.
@@ -214,13 +191,6 @@ module EbanqApi
       @client.make_request :post,
                            auth_path("#{uid}/password_reset"),
                            values
-    end
-
-    private
-
-    # Return /api/v1/auth path
-    def auth_path(action)
-      "#{AUTH_API_PATH}/#{action}"
     end
   end
 end

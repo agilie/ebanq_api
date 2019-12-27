@@ -38,11 +38,9 @@ module EbanqApi
     # raise error otherwise.
     def make_request(method, url, values = {})
       response = if method == :get
-                   RestClient.get("#{EbanqApi.base_url}/#{url}",
-                                  headers)
+                   RestClient.get("#{EbanqApi.base_url}/#{url}", headers)
                  else
-                   RestClient.post("#{EbanqApi.base_url}/#{url}",
-                                   values,
+                   RestClient.post("#{EbanqApi.base_url}/#{url}", values,
                                    headers)
                  end
       result = JSON.parse(response.body)
@@ -54,6 +52,11 @@ module EbanqApi
     # Declares an auth instance.
     def auth
       @auth ||= EbanqApi::Auth.new(self)
+    end
+
+    # Declares an profile instance.
+    def profile
+      @profile ||= EbanqApi::Profile.new(self)
     end
 
     private

@@ -3,7 +3,9 @@
 require 'ebanq_api/version'
 require 'ebanq_api/client'
 require 'ebanq_api/auth'
+require 'ebanq_api/profile'
 require 'ebanq_api/configuration'
+require 'ebanq_api/api_paths'
 
 # Provides configuration variables.
 module EbanqApi

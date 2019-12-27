@@ -1,6 +1,6 @@
 # EbanqApi
 
-A Ruby wrapper for the EBANQ Rest API.
+A wrapper for the EBANQ Rest API. Specification is as described in the the [developer documentation](https://ebanqapi.docs.apiary.io/#).
 This gem is a work in progress. 
 
 ## Installation

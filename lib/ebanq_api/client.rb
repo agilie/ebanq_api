@@ -55,11 +55,12 @@ module EbanqApi
     private
 
     def headers
-      {
+      headers = {
         content_type: 'application/x-www-form-urlencoded',
-        accept: 'application/json',
-        services_token: @auth_token
+        accept: 'application/json'
       }
+      headers.merge!(services_token: @auth_token) if @auth_token
+      headers
     end
 
     def success?(code)

@@ -3,9 +3,7 @@
 module EbanqApi
   module Configuration
 
-    OPTIONS = [
-      :base_url
-    ].freeze
+    OPTIONS = %i[base_url token secret].freeze
 
     attr_accessor *OPTIONS
 

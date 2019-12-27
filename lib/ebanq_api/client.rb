@@ -5,6 +5,8 @@ require 'json'
 require 'ebanq_api/exceptions'
 
 module EbanqApi
+  ##
+  # This class represents client functionality.
   class Client
 
     ERROR_CODES = {
@@ -19,11 +21,20 @@ module EbanqApi
       504 => GatewayTimeout
     }.freeze
 
+    # Requests service_token for current user.
     def initialize
       auth_login_response = auth.login_with_token(EbanqApi.token, EbanqApi.secret)
       @auth_token = auth_login_response['response']['token']
     end
 
+    # Makes a request to Ebanq REST Api.
+    #
+    # ==== Attributes
+    #
+    # * +method+ - :get or :post value
+    # * +url+ - name of endpoint
+    # * +values+ - values from request
+    # Returns full body of response if no errors are found, raise error otherwise.
     def make_request(method, url, values = {})
       response = if method == :get
                    RestClient.get("#{EbanqApi.base_url}/#{url}", headers)
@@ -36,6 +47,7 @@ module EbanqApi
       raise error
     end
 
+    # Declares an auth instance.
     def auth
       @auth ||= EbanqApi::Auth.new(self)
     end

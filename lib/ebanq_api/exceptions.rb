@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module EbanqApi
-
   # BadRequest exception class.
   class BadRequest < StandardError
   end
@@ -45,5 +44,4 @@ module EbanqApi
   # RateLimitExceeded exception class.
   class RateLimitExceeded < StandardError
   end
-
 end

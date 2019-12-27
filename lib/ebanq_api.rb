@@ -5,6 +5,7 @@ require 'ebanq_api/client'
 require 'ebanq_api/auth'
 require 'ebanq_api/configuration'
 
+# Provides configuration variables.
 module EbanqApi
   extend Configuration
 end

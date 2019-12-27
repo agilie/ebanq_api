@@ -6,7 +6,6 @@ module EbanqApi
   # * +token+ - user token
   # * +secret+ - user secret
   module Configuration
-
     OPTIONS = %i[base_url token secret].freeze
 
     attr_accessor *OPTIONS
@@ -14,6 +13,5 @@ module EbanqApi
     def config
       yield self
     end
-
   end
 end

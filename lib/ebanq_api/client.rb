@@ -8,7 +8,6 @@ module EbanqApi
   ##
   # This class represents client functionality.
   class Client
-
     ERROR_CODES = {
       400 => BadRequest,
       403 => Forbidden,
@@ -23,7 +22,8 @@ module EbanqApi
 
     # Requests service_token for current user.
     def initialize
-      auth_login_response = auth.login_with_token(EbanqApi.token, EbanqApi.secret)
+      auth_login_response = auth.login_with_token(EbanqApi.token,
+                                                  EbanqApi.secret)
       @auth_token = auth_login_response['response']['token']
     end
 
@@ -34,17 +34,21 @@ module EbanqApi
     # * +method+ - :get or :post value
     # * +url+ - name of endpoint
     # * +values+ - values from request
-    # Returns full body of response if no errors are found, raise error otherwise.
+    # Returns full body of response if no errors are found,
+    # raise error otherwise.
     def make_request(method, url, values = {})
       response = if method == :get
-                   RestClient.get("#{EbanqApi.base_url}/#{url}", headers)
+                   RestClient.get("#{EbanqApi.base_url}/#{url}",
+                                  headers)
                  else
-                   RestClient.post("#{EbanqApi.base_url}/#{url}", values, headers)
+                   RestClient.post("#{EbanqApi.base_url}/#{url}",
+                                   values,
+                                   headers)
                  end
       result = JSON.parse(response.body)
       success?(result['code']) ? result : parse_failed(result)
-    rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => error
-      raise error
+    rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
+      raise e
     end
 
     # Declares an auth instance.

@@ -6,7 +6,6 @@ module EbanqApi
   ##
   # This class represents an auth block of Ebanq REST Api.
   class Auth
-
     AUTH_API_PATH = 'api/v1/auth'
 
     # Declares an client instance.
@@ -89,7 +88,9 @@ module EbanqApi
     #
     # * +device_id+ (required) - Device ID
     def logout_device(device_id)
-      values = {device_id: device_id}
+      values = {
+        device_id: device_id
+      }
       @client.make_request :post,
                            auth_path('logout_device'),
                            values
@@ -190,7 +191,10 @@ module EbanqApi
     # * +token+ (required) - Push token
     # * +os_type+ (required) - OS type
     def update_push_token(token, os_type)
-      values = {token: token, os: os_type}
+      values = {
+        token: token,
+        os: os_type
+      }
 
       @client.make_request :post,
                            auth_path('push_token'),

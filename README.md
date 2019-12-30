@@ -31,6 +31,16 @@ EbanqApi.config do |config|
 end
 ```
 
+
+```ruby
+client = EbanqApi::Client.new
+
+client.profile.show(1)
+client.profile.update(1, {first_name: 'John', last_name: 'Doe'})
+client.auth.request_new_password('John')
+```
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/agilie/ebanq_api.

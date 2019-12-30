@@ -44,7 +44,7 @@ module EbanqApi
                                    headers)
                  end
       result = JSON.parse(response.body)
-      success?(result['code']) ? result : parse_failed(result)
+      success?(result['code']) ? result['response'] : parse_failed(result)
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end

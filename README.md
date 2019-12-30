@@ -1,6 +1,6 @@
 # EbanqApi
 
-A Ruby wrapper for the EBANQ Rest API.
+A wrapper for the EBANQ Rest API. Specification is as described in the the [developer documentation](https://ebanqapi.docs.apiary.io/#).
 This gem is a work in progress. 
 
 ## Installation
@@ -18,6 +18,28 @@ And then execute:
 Or install it yourself as:
 
     $ gem install ebanq_api
+
+## Usage
+
+Before you start making the requests to EBANQ API provide the `base_url` using the configuration
+wrapping. 
+```ruby
+EbanqApi.config do |config|
+  config.base_url = 'http://yourebanqdomain.com'
+    config.token = 'put your user token here'
+    config.secret = 'put your user secret here'
+end
+```
+
+
+```ruby
+client = EbanqApi::Client.new
+
+client.profile.show(1)
+client.profile.update(1, {first_name: 'John', last_name: 'Doe'})
+client.auth.request_new_password('John')
+```
+
 
 ## Contributing
 

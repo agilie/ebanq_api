@@ -9,4 +9,6 @@
 /tmp/
 
 .idea
+.idea/
+.DS_Store
 ebanq_api-*.gem

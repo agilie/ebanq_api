@@ -24,7 +24,7 @@ module EbanqApi
     def initialize
       auth_login_response = auth.login_with_token(EbanqApi.token,
                                                   EbanqApi.secret)
-      @auth_token = auth_login_response['response']['token']
+      @auth_token = auth_login_response['token']
     end
 
     # Makes a request to Ebanq REST Api.

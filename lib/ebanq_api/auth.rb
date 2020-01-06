@@ -18,10 +18,10 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +username+ (required) - A valid username
-    # * +password+ (required) -  A valid password
-    # * +device_id+ (required) - Device ID
-    # * +push_token+ - Push token
+    # * +username+ (required) - A valid username (String)
+    # * +password+ (required) -  A valid password (String)
+    # * +device_id+ (required) - Device ID (String)
+    # * +push_token+ - Push token (String)
     def login(username, password, device_id, push_token = '')
       values = {
         username: username,
@@ -39,8 +39,8 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +token+ (required) - A user token
-    # * +secret+ (required) - A user secret
+    # * +token+ (required) - A user token (String)
+    # * +secret+ (required) - A user secret (String)
     def login_with_token(token, secret)
       values = {
         token: token,
@@ -63,7 +63,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +device_id+ (required) - Device ID
+    # * +device_id+ (required) - Device ID (String)
     def logout_device(device_id)
       values = {
         device_id: device_id
@@ -78,7 +78,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +name+ (required) - A valid user name or e-mail address
+    # * +name+ (required) - A valid user name or e-mail address (String)
     def request_new_password(name)
       values = {
         name: name
@@ -93,9 +93,9 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +pin+ (required) - PIN code
-    # * +device_id+ (required) - Device ID
-    # * +push_token+ (required) - Push Token
+    # * +pin+ (required) - PIN code (String)
+    # * +device_id+ (required) - Device ID (String)
+    # * +push_token+ (required) - Push Token (String)
     def login_by(pin, device_id, push_token)
       values = {
         pin: pin,
@@ -112,7 +112,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +pin+ (required) - PIN code
+    # * +pin+ (required) - PIN code (String)
     def update_user_pin(pin)
       values = {
         pin: pin
@@ -127,8 +127,8 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +pin+ (required) - PIN code
-    # * +device_id+ (required) - Device ID
+    # * +pin+ (required) - PIN code (String)
+    # * +device_id+ (required) - Device ID (String)
     def refresh_token(pin, device_id)
       values = {
         pin: pin,
@@ -144,11 +144,11 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +uid+ (required) - The uid of the user in the operation.
+    # * +uid+ (required) - The uid of the user in the operation. (Number)
     # * +timestamp+ (required) - The timestamp value from the
-    # reset password link.
+    # reset password link. (Number)
     # * +hashed_pass+ (required) - The hashed pass value from
-    # the reset password link.
+    # the reset password link. (String)
     def pass_reset_token(uid, timestamp, hashed_pass)
       values = {
         uid: uid,
@@ -165,8 +165,8 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +token+ (required) - Push token
-    # * +os_type+ (required) - OS type
+    # * +token+ (required) - Push token (String)
+    # * +os_type+ (required) - OS type (String)
     def update_push_token(token, os_type)
       values = {
         token: token,
@@ -183,7 +183,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +uid+ (required) - The id of the user
+    # * +uid+ (required) - The id of the user (Number)
     def reset_password(uid)
       values = {
         uid: uid

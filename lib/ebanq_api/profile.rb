@@ -28,7 +28,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +uid+ (required) - The id of the user
+    # * +uid+ (required) - The id of the user (Number)
     # * +fields+ (required) - hash of params which needs to update,
     # e.g. {first_name: 'John', last_name: 'Doe'}
     def update(uid, fields)

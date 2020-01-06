@@ -39,11 +39,9 @@ module EbanqApi
     def make_request(method, url, params = {})
       path = "#{EbanqApi.base_url}/#{url}"
       response = if method == :get
-                   RestClient.get("#{EbanqApi.base_url}/#{url}",
-                                  headers.merge!(params: params))
+                   RestClient.get(path, headers.merge!(params: params))
                  else
-                   RestClient.post(path, params,
-                                   headers)
+                   RestClient.post(path, params, headers)
                  end
       if !response.body.empty?
         process_response(response)

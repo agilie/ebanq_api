@@ -43,8 +43,11 @@ module EbanqApi
                    RestClient.post("#{EbanqApi.base_url}/#{url}", values,
                                    headers)
                  end
-      result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
+      if !response.body.empty?
+        process_response(response)
+      else
+        response.body
+      end
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end
@@ -77,6 +80,11 @@ module EbanqApi
     def parse_failed(response)
       error = ERROR_CODES[response['code']].new(response)
       raise error, error.message
+    end
+
+    def process_response(response)
+      result = JSON.parse(response.body)
+      success?(result['code']) ? result['response'] : parse_failed(result)
     end
   end
 end

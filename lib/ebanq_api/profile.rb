@@ -35,5 +35,11 @@ module EbanqApi
       @client.make_request :post,
                            auth_path(uid), fields
     end
+
+    # Get list of allowed documents
+    # /api/v1/profile/
+    def list_of_allowed_documents
+      @client.make_request :post, PROFILE_API_PATH
+    end
   end
 end

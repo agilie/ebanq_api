@@ -18,7 +18,7 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +uid+ (required) - The id of the user
+    # * +uid+ (required) - The id of the user (Number)
     def show(uid)
       @client.make_request :get, auth_path(uid)
     end

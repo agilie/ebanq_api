@@ -36,11 +36,13 @@ module EbanqApi
     # * +values+ - values from request
     # Returns full body of response if no errors are found,
     # raise error otherwise.
-    def make_request(method, url, values = {})
+    def make_request(method, url, params = {})
+      path = "#{EbanqApi.base_url}/#{url}"
       response = if method == :get
-                   RestClient.get("#{EbanqApi.base_url}/#{url}", headers)
+                   RestClient.get("#{EbanqApi.base_url}/#{url}",
+                                  headers.merge!(params: params))
                  else
-                   RestClient.post("#{EbanqApi.base_url}/#{url}", values,
+                   RestClient.post(path, params,
                                    headers)
                  end
       if !response.body.empty?
@@ -60,6 +62,11 @@ module EbanqApi
     # Declares an profile instance.
     def profile
       @profile ||= EbanqApi::Profile.new(self)
+    end
+
+    # Declares an accounts instance.
+    def accounts
+      @accounts ||= EbanqApi::Accounts.new(self)
     end
 
     private

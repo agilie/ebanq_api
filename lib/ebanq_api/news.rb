@@ -17,7 +17,7 @@ module EbanqApi
     # /api/v1/news/{id}
     # ==== Attributes
     #
-    # * +id+ (required) - he ID of the news to retrieve. (Number)
+    # * +id+ (required) - the ID of the news to retrieve. (Number)
     def show(uid)
       @client.make_request :get, news_path(uid)
     end

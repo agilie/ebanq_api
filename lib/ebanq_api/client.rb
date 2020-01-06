@@ -67,6 +67,11 @@ module EbanqApi
       @accounts ||= EbanqApi::Accounts.new(self)
     end
 
+    # Declares an news instance.
+    def news
+      @news ||= EbanqApi::News.new(self)
+    end
+
     private
 
     def headers

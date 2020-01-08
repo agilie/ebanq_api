@@ -22,10 +22,16 @@ Or install it yourself as:
 ## Docs
 [Gem documentation](https://agilie.github.io/ebanq_api/).
 
+## Docs
+[Gem documentation](https://agilie.github.io/ebanq_api/).
+
 ## Usage
 
 Before you start making the requests to EBANQ API provide the `base_url` using the configuration
 wrapping. 
+
+at config/initializers/ebanq_api.rb
+
 ```ruby
 EbanqApi.config do |config|
   config.base_url = 'http://yourebanqdomain.com'
@@ -33,7 +39,7 @@ EbanqApi.config do |config|
     config.secret = 'put your user secret here'
 end
 ```
-
+ and then 
 
 ```ruby
 client = EbanqApi::Client.new

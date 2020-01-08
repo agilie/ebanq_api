@@ -5,7 +5,7 @@ require 'ebanq_api/api_paths'
 
 module EbanqApi
   ##
-  # This class represents an profile functional of Ebanq REST Api.
+  # This class represents an news functional of Ebanq REST Api.
   class News
     include ApiPaths
     # Declares an client instance.

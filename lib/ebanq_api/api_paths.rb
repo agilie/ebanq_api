@@ -9,6 +9,7 @@ module EbanqApi
     ACCOUNT_API_PATH = '/api/v1/accounts'
     NEWS_API_PATH = '/api/v1/news'
     MESSAGES_API_PATH = '/api/v1/messages'
+    CARDS_API_PATH = '/api/v1/cards'
 
     # Return /api/v1/auth path
     def auth_path(action)
@@ -28,6 +29,11 @@ module EbanqApi
     # Return /api/v1/messages path
     def messages_path(action = '')
       "#{MESSAGES_API_PATH}/#{action}"
+    end
+
+    # Return /api/v1/cards path
+    def cards_path(action = '')
+      "#{CARDS_API_PATH}/#{action}"
     end
   end
 end

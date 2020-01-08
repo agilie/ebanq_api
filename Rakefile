@@ -9,6 +9,6 @@ RDoc::Task.new :rdoc do |rdoc|
   rdoc.rdoc_dir = 'docs'
   rdoc.rdoc_files.include('README.md', 'lib/ebanq_api/**/*.rb')
 
-  rdoc.title = 'Ebanq Gem'
+  rdoc.title = 'Ebanq'
   rdoc.options << '--all'
 end

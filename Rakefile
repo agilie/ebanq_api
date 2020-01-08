@@ -7,8 +7,8 @@ task default: :spec
 RDoc::Task.new :rdoc do |rdoc|
   rdoc.main = 'README.rdoc'
   rdoc.rdoc_dir = 'docs'
-  rdoc.rdoc_files.include('README.md', 'lib/**/*.rb')
+  rdoc.rdoc_files.include('README.md', 'lib/ebanq_api/**/*.rb')
 
-  rdoc.title = 'Ebanq API Gem Documentation'
+  rdoc.title = 'Ebanq Gem'
   rdoc.options << '--all'
 end

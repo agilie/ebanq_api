@@ -45,7 +45,7 @@ module EbanqApi
                  else raise 'Error'
                  end
 
-      !response.body.empty? ? process_response(response) : response.body
+      process_raw_response(response)
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end
@@ -92,6 +92,20 @@ module EbanqApi
       RestClient.delete path, headers
     end
 
+    def process_raw_response(response)
+      !response.body.empty? ? process_response_body(response) : response.body
+    end
+
+    def parse_failed(response)
+      error = ERROR_CODES[response['code']].new(response)
+      raise error, error.message
+    end
+
+    def process_response_body(response)
+      result = JSON.parse(response.body)
+      success?(result['code']) ? result['response'] : parse_failed(result)
+    end
+
     def headers
       headers = {
         content_type: 'application/x-www-form-urlencoded',
@@ -103,16 +117,6 @@ module EbanqApi
 
     def success?(code)
       code.to_i >= 200 && code.to_i < 300
-    end
-
-    def parse_failed(response)
-      error = ERROR_CODES[response['code']].new(response)
-      raise error, error.message
-    end
-
-    def process_response(response)
-      result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
     end
   end
 end

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>README - RDoc Documentation</title>
+<title>README - Ebanq API Gem Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -69,17 +69,7 @@
 
   <ul class="link-list">
   
-    <li><a href="./Gemfile.html">Gemfile</a>
-  
     <li><a href="./README_md.html">README</a>
-  
-    <li><a href="./Rakefile.html">Rakefile</a>
-  
-    <li><a href="./bin/console.html">console</a>
-  
-    <li><a href="./bin/setup.html">setup</a>
-  
-    <li><a href="./ebanq_api_gemspec.html">ebanq_api.gemspec</a>
   
   </ul>
 </div>
@@ -113,11 +103,7 @@ This gem is a work in progress.</p>
 <h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <p>Before you start making the requests to EBANQ API provide the
-<code>base_url</code> using the configuration wrapping. <code>ruby
-EbanqApi.config do |config|   config.base_url =
-&#39;http://yourebanqdomain.com&#39;     config.token = &#39;put your user
-token here&#39;     config.secret = &#39;put your user secret here&#39; end
-</code></p>
+<code>base_url</code> using the configuration wrapping.</p>
 
 <pre class="ruby"><span class="ruby-identifier">client</span> = <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>
 

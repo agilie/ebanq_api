@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class EbanqApi::Client - RDoc Documentation</title>
+<title>class EbanqApi::Client - Ebanq API Gem Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -74,9 +74,15 @@
     
     <li ><a href="#method-i-auth">#auth</a>
     
+    <li ><a href="#method-i-headers">#headers</a>
+    
     <li ><a href="#method-i-make_request">#make_request</a>
     
+    <li ><a href="#method-i-parse_failed">#parse_failed</a>
+    
     <li ><a href="#method-i-profile">#profile</a>
+    
+    <li ><a href="#method-i-success-3F">#success?</a>
     
   </ul>
 </div>
@@ -280,6 +286,119 @@ otherwise.</p>
             <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">profile</span>
   <span class="ruby-ivar">@profile</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Profile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-headers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">headers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="headers-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">headers</span>
+  <span class="ruby-identifier">headers</span> = {
+    <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>,
+    <span class="ruby-identifier">accept</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;application/json&#39;</span>
+  }
+  <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">services_token</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@auth_token</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auth_token</span>
+  <span class="ruby-identifier">headers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_failed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_failed</span><span
+            class="method-args">(response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_failed-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_failed</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">error</span> = <span class="ruby-constant">ERROR_CODES</span>[<span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;code&#39;</span>]].<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">error</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-success-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">success?</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="success-3F-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">success?</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">200</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">300</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

@@ -23,14 +23,6 @@ Or install it yourself as:
 
 Before you start making the requests to EBANQ API provide the `base_url` using the configuration
 wrapping. 
-```ruby
-EbanqApi.config do |config|
-  config.base_url = 'http://yourebanqdomain.com'
-    config.token = 'put your user token here'
-    config.secret = 'put your user secret here'
-end
-```
-
 
 ```ruby
 client = EbanqApi::Client.new

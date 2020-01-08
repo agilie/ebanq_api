@@ -80,6 +80,11 @@ module EbanqApi
       @cards ||= EbanqApi::Cards.new(self)
     end
 
+    # Declares an requests instance.
+    def requests
+      @requests ||= EbanqApi::Requests.new(self)
+    end
+
     private
 
     def get(path, params, headers)

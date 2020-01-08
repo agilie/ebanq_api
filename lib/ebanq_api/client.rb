@@ -38,16 +38,19 @@ module EbanqApi
     # raise error otherwise.
     def make_request(method, url, params = {})
       path = "#{EbanqApi.base_url}/#{url}"
-      response = if method == :get
+
+      response = case method
+                 when :get
                    RestClient.get(path, headers.merge!(params: params))
-                 else
+                 when :post
                    RestClient.post(path, params, headers)
+                 when :delete
+                   RestClient.delete path, headers
+                 else
+                   raise 'Error'
                  end
-      if !response.body.empty?
-        process_response(response)
-      else
-        response.body
-      end
+
+      !response.body.empty? ? process_response(response) : response.body
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end

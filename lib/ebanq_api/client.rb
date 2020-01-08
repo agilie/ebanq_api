@@ -38,16 +38,11 @@ module EbanqApi
     # raise error otherwise.
     def make_request(method, url, params = {})
       path = "#{EbanqApi.base_url}/#{url}"
-
       response = case method
-                 when :get
-                   RestClient.get(path, headers.merge!(params: params))
-                 when :post
-                   RestClient.post(path, params, headers)
-                 when :delete
-                   RestClient.delete path, headers
-                 else
-                   raise 'Error'
+                 when :get then get(path, params, headers)
+                 when :post then post(path, params, headers)
+                 when :delete then delete(path, headers)
+                 else raise 'Error'
                  end
 
       !response.body.empty? ? process_response(response) : response.body
@@ -81,6 +76,21 @@ module EbanqApi
     end
 
     private
+
+    def get(path, params, headers)
+      RestClient::Request.execute(method: :get, url: path,
+                                  timeout: 10,
+                                  headers: headers
+                                             .merge!(params: params))
+    end
+
+    def post(path, params, headers)
+      RestClient.post(path, params, headers)
+    end
+
+    def delete(path, headers)
+      RestClient.delete path, headers
+    end
 
     def headers
       headers = {

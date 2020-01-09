@@ -32,6 +32,5 @@ module EbanqApi
     def list(options = {})
       @client.make_request :get, news_path, options
     end
-
   end
 end

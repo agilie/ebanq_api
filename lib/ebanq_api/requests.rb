@@ -27,7 +27,8 @@ module EbanqApi
     # * * +currency+ - The ID of the transfer request currency (Number)
     # * * +request_types+ - Type of request (Number)
     # * * +request_status+ - Status of the request (Number)
-    # * * +date_from+ - Start date for transactions. Format - YYYY-MM-DD (String)
+    # * * +date_from+ - Start date for transactions.
+    # Format - YYYY-MM-DD (String)
     # * * +date_to+ - End date for transactions. Format - YYYY-MM-DD (String)
     def list(options = {})
       @client.make_request :get, requests_path, options
@@ -97,7 +98,8 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +options+ - hash of options for request, e.g. {perpage: 2, page: 1, sort: 'date'}
+    # * +options+ - hash of options for request,
+    # e.g. {perpage: 2, page: 1, sort: 'date'}
     # * * +user+ - Name of the user
     # * * * Required if request sent by administrator (String)
     # * * +account_from+ (required) - Id of account (Number)

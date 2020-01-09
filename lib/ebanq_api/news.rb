@@ -26,12 +26,11 @@ module EbanqApi
     # /api/v1/news
     #
     # ==== Attributes
-    # * +page+ - Page number. (Number)
-    def list(page = 1)
-      values = {
-        page: page
-      }
-      @client.make_request :get, news_path, values
+    #
+    # * +options+ - hash of options for request, e.g. {page: 1}
+    # * * +page+ - Page number. (Number)
+    def list(options = {})
+      @client.make_request :get, news_path, options
     end
 
   end

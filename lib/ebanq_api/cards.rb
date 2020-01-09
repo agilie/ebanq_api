@@ -24,9 +24,6 @@ module EbanqApi
 
     # List all cards belonging to user
     # /api/v1/cards
-    #
-    # ==== Attributes
-    # * +page+ - Page number. (Number)
     def list
       @client.make_request :get, cards_path
     end

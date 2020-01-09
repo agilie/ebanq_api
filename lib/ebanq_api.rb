@@ -9,7 +9,6 @@ require 'ebanq_api/news'
 require 'ebanq_api/messages'
 require 'ebanq_api/cards'
 require 'ebanq_api/requests'
-require 'ebanq_api/requests/request'
 require 'ebanq_api/configuration'
 require 'ebanq_api/api_paths'
 

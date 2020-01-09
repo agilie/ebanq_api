@@ -92,6 +92,34 @@ module EbanqApi
       create('cft', params)
     end
 
+    # Create OWT request
+    # /api/v1/requests/owt
+    #
+    # ==== Attributes
+    #
+    # * +options+ - hash of options for request, e.g. {perpage: 2, page: 1, sort: 'date'}
+    # * * +user+ - Name of the user
+    # * * * Required if request sent by administrator (String)
+    # * * +account_from+ (required) - Id of account (Number)
+    # * * +beneficiary_bank+  (required) - instance of BeneficiaryBank
+    # * * +beneficiary_customer+ (required) - instance of BeneficiaryCustomer
+    # * * +additional_info+ (required) - instance of AdditionalInfo
+    # * * +is_intermediary_bank+ (required) - (Number)
+    # * * +intermediary_bank+ - instance of IntermediaryBank
+    # * * +amount+ (required) -  (Number)
+    # * * +currency+ (required) -  (Number)
+    # * * +fee_type+ (required) -  (Number)
+    # * * +description+ - (String)
+    # * +tan+ - security number (String)
+    def create_owt(params)
+      params[:beneficiary_bank] = params[:beneficiary_bank].to_hash
+      params[:beneficiary_customer] = params[:beneficiary_customer].to_hash
+      params[:additional_info] = params[:additional_info].to_hash
+      params[:intermediary_bank] = params[:intermediary_bank].to_hash
+
+      create('owt', params)
+    end
+
     # Approve one transfer request
     # /api/v1/requests/approve
     #

@@ -46,80 +46,50 @@ module EbanqApi
     # /api/v1/requests/tba
     #
     # ==== Attributes
-    # * +account_from_id+ (required) - Id of account (Number)
-    # * +account_to_id+ (required) - Id of account (Number)
-    # * +amount+ (required) -  (Number)
-    # * +user_name+ - Name of the user
-    # *Required if request sent by administrator (String)
-    # * +description+ - (String)
-    # * +tan+ - security number (String)
-    def create_tba(account_from_id, account_to_id, amount,
-                   user_name = '', description = '', tan = '')
-      values = {
-        user: user_name,
-        account_from: account_from_id,
-        account_to: account_to_id,
-        amount: amount,
-        description: description,
-        tan: tan
-      }
-
-      @client.make_request :post,
-                           requests_path('tba'),
-                           values
+    # * +params+ - hash of params for request,
+    # e.g. {user: 'John', account_from: 1, account_to: 2, amount: 5}
+    # * * +user+ - Name of the user
+    # Required if request sent by administrator (String)
+    # * * +account_from+ (required) - Id of account (Number)
+    # * * +account_to+ (required) - Id of account (Number)
+    # * * +amount+ (required) -  (Number)
+    # * * +description+ - (String)
+    # * * +tan+ - security number (String)
+    def create_tba(params)
+      create('tba', params)
     end
 
     # Create TBU request
     # /api/v1/requests/tbu
     #
     # ==== Attributes
-    # * +account_from_id+ (required) - Id of account (Number)
-    # * +account_to_id+ (required) - Id of account (Number)
-    # * +amount+ (required) -  (Number)
-    # * +user_to+ (required) -  Name of recipient user (String)
-    # * +user_name+ - Name of the user
+    # * +params+ - hash of params for request,
+    # e.g. {user: 'John', account_from: 1, account_to: 2, amount: 5}
+    # * * +user+ - Name of the user
     # *Required if request sent by administrator (String)
-    # * +description+ - (String)
-    # * +tan+ - security number (String)
-    def create_tbu(account_from_id, account_to_id, amount, user_to,
-                   user_name = '', description = '', tan = '')
-      values = {
-        user: user_name,
-        account_from: account_from_id,
-        account_to: account_to_id,
-        amount: amount,
-        description: description,
-        user_to: user_to,
-        tan: tan
-      }
-
-      @client.make_request :post,
-                           requests_path('tbu'),
-                           values
+    # * * +account_from+ (required) - Id of account (Number)
+    # * * +account_to+ (required) - Id of account (Number)
+    # * * +amount+ (required) -  (Number)
+    # * * +description+ - (String)
+    # * * +user_to+ (required) -  Name of recipient user (String)
+    # * * +tan+ - security number (String)
+    def create_tbu(params)
+      create('tbu', params)
     end
 
     # Create CFT request
     # /api/v1/requests/cft
     #
     # ==== Attributes
-    # * +account_from_id+ (required) - Id of account (Number)
-    # * +card_to_id+ (required) - Id of the card (Number)
-    # * +amount+ (required) -  (Number)
-    # * +description+ - (String)
-    # * +tan+ - security number (String)
-    def create_cft(account_from_id, card_to_id, amount,
-                   description = '', tan = '')
-      values = {
-        account_from: account_from_id,
-        card_to: card_to_id,
-        amount: amount,
-        description: description,
-        tan: tan
-      }
-
-      @client.make_request :post,
-                           requests_path('cft'),
-                           values
+    # * +params+ - hash of params for request,
+    # e.g. {account_from: 1, card_to: 2, amount: 5}
+    # * * +account_from+ (required) - Id of account (Number)
+    # * * +card_to+ (required) - Id of the card (Number)
+    # * * +amount+ (required) -  (Number)
+    # * * +description+ - (String)
+    # * * +tan+ - security number (String)
+    def create_cft(params)
+      create('cft', params)
     end
 
     # Approve one transfer request
@@ -133,5 +103,12 @@ module EbanqApi
                            request_id: request_id
     end
 
+    private
+
+    def create(type, params)
+      @client.make_request :post,
+                           requests_path(type),
+                           params
+    end
   end
 end

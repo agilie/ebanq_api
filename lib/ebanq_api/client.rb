@@ -4,6 +4,7 @@ require 'rest_client'
 require 'json'
 require 'ebanq_api/exceptions'
 
+# Client functionality
 module EbanqApi
   ##
   # This class represents client functionality.

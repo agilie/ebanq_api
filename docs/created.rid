@@ -1,9 +1,9 @@
-Wed, 08 Jan 2020 17:07:37 +0200
-README.md	Wed, 08 Jan 2020 17:07:35 +0200
-lib/ebanq_api/api_paths.rb	Wed, 08 Jan 2020 14:29:51 +0200
-lib/ebanq_api/auth.rb	Wed, 08 Jan 2020 14:29:51 +0200
-lib/ebanq_api/client.rb	Wed, 08 Jan 2020 14:29:51 +0200
-lib/ebanq_api/configuration.rb	Mon, 06 Jan 2020 10:40:58 +0200
-lib/ebanq_api/exceptions.rb	Mon, 06 Jan 2020 10:40:58 +0200
-lib/ebanq_api/profile.rb	Wed, 08 Jan 2020 14:29:51 +0200
-lib/ebanq_api/version.rb	Thu, 26 Dec 2019 10:56:56 +0200
+Fri, 10 Jan 2020 15:47:20 +0200
+README.md	Fri, 10 Jan 2020 15:22:01 +0200
+lib/ebanq_api/api_paths.rb	Fri, 10 Jan 2020 15:44:05 +0200
+lib/ebanq_api/auth.rb	Fri, 10 Jan 2020 15:22:01 +0200
+lib/ebanq_api/client.rb	Fri, 10 Jan 2020 15:22:01 +0200
+lib/ebanq_api/configuration.rb	Fri, 10 Jan 2020 15:44:05 +0200
+lib/ebanq_api/exceptions.rb	Fri, 10 Jan 2020 15:45:19 +0200
+lib/ebanq_api/profile.rb	Fri, 10 Jan 2020 15:40:38 +0200
+lib/ebanq_api/version.rb	Fri, 10 Jan 2020 15:46:27 +0200

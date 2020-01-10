@@ -47,7 +47,7 @@ module EbanqApi
       if !response.body.empty?
         process_response(response)
       else
-        response.body
+        {}
       end
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e

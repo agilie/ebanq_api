@@ -4,6 +4,7 @@ require 'rest_client'
 require 'json'
 require 'ebanq_api/exceptions'
 
+# Client functionality
 module EbanqApi
   ##
   # This class represents client functionality.
@@ -93,7 +94,7 @@ module EbanqApi
     end
 
     def process_raw_response(response)
-      !response.body.empty? ? process_response_body(response) : response.body
+      !response.body.empty? ? process_response_body(response) : {}
     end
 
     def parse_failed(response)

@@ -113,7 +113,7 @@ module EbanqApi
 
     def process_response_body(response)
       result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
+      success?(result['code']) ? OpenStruct.new(result['response']) : parse_failed(result)
     end
 
     def headers

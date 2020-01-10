@@ -38,7 +38,7 @@ module EbanqApi
     # /api/v1/requests/{id}
     # ==== Attributes
     #
-    # * +id+ (required) - the ID of the news to retrieve. (Number)
+    # * +id+ (required) - Id of the transfer request (Number)
     def show(id)
       @client.make_request :get, requests_path(id)
     end

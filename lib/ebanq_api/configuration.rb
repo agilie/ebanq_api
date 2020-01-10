@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Configuration module
 module EbanqApi
   # Configuration module
   # * +base_url+ - http://yourebanqdomain.com

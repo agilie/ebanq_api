@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Provides classes of exceptions
 module EbanqApi
   # BadRequest exception class.
   class BadRequest < StandardError

@@ -16,6 +16,7 @@ require 'ebanq_api/owt/additional_info'
 require 'ebanq_api/owt/beneficiary_bank'
 require 'ebanq_api/owt/beneficiary_customer'
 require 'ebanq_api/owt/intermediary_bank'
+require 'ebanq_api/response_wrapper'
 
 # Provides configuration variables.
 module EbanqApi

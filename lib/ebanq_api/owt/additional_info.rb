@@ -2,6 +2,7 @@
 
 require 'ebanq_api/owt/common'
 
+# AdditionalInfo class
 module EbanqApi
   ##
   # This class represents an additional info functional

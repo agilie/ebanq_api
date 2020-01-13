@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# IntermediaryBank class
 module EbanqApi
   ##
   # This class represents an intermediary bank functional

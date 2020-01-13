@@ -2,6 +2,7 @@
 
 require 'ebanq_api/owt/common'
 
+# BeneficiaryCustomer class
 module EbanqApi
   ##
   # This class represents an beneficiary customer functional

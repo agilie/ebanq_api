@@ -15,7 +15,7 @@ module EbanqApi
     end
 
     # Get all available Report types
-    #  /api/v1/reports
+    # /api/v1/reports
     def types
       @client.make_request :get, reports_path
     end
@@ -35,7 +35,7 @@ module EbanqApi
     # * * +user_name+ (required) - Name of the user who
     # own the accounts. (String)
     # * * +sort+ - Sorting for transactions list.
-    #  Allowed values: id, date, amount, description. (String)
+    # Allowed values: id, date, amount, description. (String)
     # * * +order+ - Order of sorting for transactions list.
     # Allowed values: asc, desc. (String)
     # * * +per_page+ - Amount of transactions per page.
@@ -53,7 +53,7 @@ module EbanqApi
     # Get report All Accounts Balances
     # /api/v1/reports/aab
     #
-    #==== Attributes
+    # ==== Attributes
     #
     # * +options+ - hash of options for request,
     # e.g. {page: 3, sort: 'amount'}
@@ -64,7 +64,7 @@ module EbanqApi
     # * * +date_to+ - End date for transactions.
     # Format - YYYY-MM-DD (String)
     # * * +sort+ - Sorting for transactions list.
-    #  Allowed values: id, date, amount, description. (String)
+    # Allowed values: id, date, amount, description. (String)
     # * * +order+ - Order of sorting for transactions list.
     # Allowed values: asc, desc. (String)
     def all_accounts_balances(options = {})
@@ -74,9 +74,9 @@ module EbanqApi
     # Get report Specific Account Statement
     # /api/v1/reports/sas
     #
-    #==== Attributes
+    # ==== Attributes
     #
-    # * +account_id+ -The ID of the account for report.
+    # * +account_id+ (required) -The ID of the account for report.
     # Use only for type sas (Number)
     # * +options+ - hash of options for request,
     # e.g. {page: 1, per_page: 'all', sort: 'amount', order: 'desc'}
@@ -86,7 +86,7 @@ module EbanqApi
     # * * +date_to+ - End date for transactions.
     # Format - YYYY-MM-DD (String)
     # * * +sort+ - Sorting for transactions list.
-    #  Allowed values: id, date, amount, description. (String)
+    # Allowed values: id, date, amount, description. (String)
     # * * +order+ - Order of sorting for transactions list.
     # Allowed values: asc, desc. (String)
     # * * +per_page+ - Amount of transactions per page.

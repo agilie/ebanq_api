@@ -3,6 +3,7 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# News block
 module EbanqApi
   ##
   # This class represents an news functional of Ebanq REST Api.

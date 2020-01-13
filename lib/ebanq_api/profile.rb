@@ -3,6 +3,7 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# Profile block
 module EbanqApi
   ##
   # This class represents an profile functional of Ebanq REST Api.
@@ -39,7 +40,7 @@ module EbanqApi
     # Get list of allowed documents
     # /api/v1/profile/
     def list_of_allowed_documents
-      @client.make_request :post, PROFILE_API_PATH
+      @client.make_request :get, PROFILE_API_PATH
     end
   end
 end

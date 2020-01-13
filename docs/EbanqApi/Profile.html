@@ -142,7 +142,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -188,7 +188,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">uid</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -230,7 +230,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 34</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">fields</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
                        <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>), <span class="ruby-identifier">fields</span>

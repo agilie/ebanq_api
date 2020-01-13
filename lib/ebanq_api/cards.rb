@@ -3,6 +3,7 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# Cards block
 module EbanqApi
   ##
   # This class represents an cards functional of Ebanq REST Api.

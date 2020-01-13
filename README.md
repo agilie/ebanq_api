@@ -22,9 +22,6 @@ Or install it yourself as:
 ## Docs
 [Gem documentation](https://agilie.github.io/ebanq_api/).
 
-## Docs
-[Gem documentation](https://agilie.github.io/ebanq_api/).
-
 ## Usage
 
 Before you start making the requests to EBANQ API provide the `base_url` using the configuration

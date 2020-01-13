@@ -3,6 +3,7 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# Requests block
 module EbanqApi
   ##
   # This class represents an requests functional of Ebanq REST Api.

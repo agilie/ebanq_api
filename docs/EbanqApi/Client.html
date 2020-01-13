@@ -153,7 +153,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 24</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-identifier">auth_login_response</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">login_with_token</span>(<span class="ruby-constant">EbanqApi</span>.<span class="ruby-identifier">token</span>,
                                               <span class="ruby-constant">EbanqApi</span>.<span class="ruby-identifier">secret</span>)
@@ -196,7 +196,7 @@
 
           
           <div class="method-source-code" id="auth-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 53</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">auth</span>
   <span class="ruby-ivar">@auth</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Auth</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -241,7 +241,7 @@ otherwise.</p>
 
           
           <div class="method-source-code" id="make_request-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 39</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">make_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">values</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-value">:get</span>
                <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;#{EbanqApi.base_url}/#{url}&quot;</span>, <span class="ruby-identifier">headers</span>)
@@ -283,7 +283,7 @@ otherwise.</p>
 
           
           <div class="method-source-code" id="profile-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 58</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">profile</span>
   <span class="ruby-ivar">@profile</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">Profile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -324,7 +324,7 @@ otherwise.</p>
 
           
           <div class="method-source-code" id="headers-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 64</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">headers</span>
   <span class="ruby-identifier">headers</span> = {
     <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>,
@@ -362,7 +362,7 @@ otherwise.</p>
 
           
           <div class="method-source-code" id="parse_failed-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 77</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 78</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_failed</span>(<span class="ruby-identifier">response</span>)
   <span class="ruby-identifier">error</span> = <span class="ruby-constant">ERROR_CODES</span>[<span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;code&#39;</span>]].<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>)
   <span class="ruby-identifier">raise</span> <span class="ruby-identifier">error</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
@@ -396,7 +396,7 @@ otherwise.</p>
 
           
           <div class="method-source-code" id="success-3F-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 73</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/client.rb, line 74</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">success?</span>(<span class="ruby-identifier">code</span>)
   <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">200</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">300</span>
 <span class="ruby-keyword">end</span></pre>

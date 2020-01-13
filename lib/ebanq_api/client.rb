@@ -86,6 +86,11 @@ module EbanqApi
       @requests ||= EbanqApi::Requests.new(self)
     end
 
+    # Declares an reports instance.
+    def reports
+      @reports ||= EbanqApi::Reports.new(self)
+    end
+
     private
 
     def get(path, params, headers)
@@ -104,7 +109,7 @@ module EbanqApi
     end
 
     def process_raw_response(response)
-      !response.body.empty? ? process_response_body(response) : OpenStruct.new
+      !response.body.empty? ? process_response_body(response) : {}
     end
 
     def parse_failed(response)
@@ -114,7 +119,7 @@ module EbanqApi
 
     def process_response_body(response)
       result = JSON.parse(response.body)
-      success?(result['code']) ? OpenStruct.new(result['response']) : parse_failed(result)
+      success?(result['code']) ? result['response'] : parse_failed(result)
     end
 
     def headers

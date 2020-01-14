@@ -52,6 +52,10 @@ module EbanqApi
     # * +security_question_id+ (required) - (String)
     # * +security_question_answer+ (required) - (String)
     # * +options+ - hash of options for request,
+    # e.g. {old_password: "in do labore tempor",
+    #  new_password: "velit ut nisi",
+    #  pending_executed: -53369806,
+    #  user_transfer: -43209232}
     # * * +old_password+ (String)
     # * * +new_password+ (String)
     # * * +pending_executed+ (Number)
@@ -71,3 +75,4 @@ module EbanqApi
     end
   end
 end
+

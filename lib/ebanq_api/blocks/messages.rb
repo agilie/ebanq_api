@@ -159,7 +159,7 @@ module EbanqApi
     #
     # ==== Examples
     #
-    #   client.messages.show(4)
+    #   client.messages.delete(4)
     def delete_thread(id)
       @client.make_request :delete, messages_path(id)
     end

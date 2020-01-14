@@ -94,6 +94,11 @@ module EbanqApi
       @reports ||= EbanqApi::Reports.new(self)
     end
 
+    # Declares an settings instance.
+    def settings
+      @settings ||= EbanqApi::Settings.new(self)
+    end
+
     private
 
     def success?(code)

@@ -76,6 +76,16 @@ module EbanqApi
       @messages ||= EbanqApi::Messages.new(self)
     end
 
+    # Declares an cards instance.
+    def cards
+      @cards ||= EbanqApi::Cards.new(self)
+    end
+
+    # Declares an requests instance.
+    def requests
+      @requests ||= EbanqApi::Requests.new(self)
+    end
+
     private
 
     def get(path, params, headers)
@@ -94,7 +104,7 @@ module EbanqApi
     end
 
     def process_raw_response(response)
-      !response.body.empty? ? process_response_body(response) : {}
+      !response.body.empty? ? process_response_body(response) : OpenStruct.new
     end
 
     def parse_failed(response)
@@ -104,7 +114,7 @@ module EbanqApi
 
     def process_response_body(response)
       result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
+      success?(result['code']) ? OpenStruct.new(result['response']) : parse_failed(result)
     end
 
     def headers

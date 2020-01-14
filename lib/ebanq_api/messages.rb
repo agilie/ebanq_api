@@ -3,9 +3,10 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# Messages block
 module EbanqApi
   ##
-  # This class represents an profile functional of Ebanq REST Api.
+  # This class represents an messages functional of Ebanq REST Api.
   class Messages
     include ApiPaths
     # Declares an client instance.
@@ -24,7 +25,8 @@ module EbanqApi
     # * * +per_page+ - Count messages per page. (Number)
     # * * +order+ - Sorting for messages list.
     # Allowed values: last_update, subject. (String)
-    # * * +sort+ - Order of sorting for messages list. Allowed values: asc, desc.
+    # * * +sort+ - Order of sorting for messages list.
+    # Allowed values: asc, desc.
     # * * +search+ - Part of subject of text of messages for search. (String)
     def list(options = {})
       @client.make_request :get, messages_path, options
@@ -126,6 +128,5 @@ module EbanqApi
 
       @client.make_request :post, messages_path('send/groups'), values
     end
-
   end
 end

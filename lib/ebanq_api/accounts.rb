@@ -3,6 +3,7 @@
 require 'ebanq_api/client'
 require 'ebanq_api/api_paths'
 
+# Accounts block
 module EbanqApi
   ##
   # This class represents an profile functional of Ebanq REST Api.
@@ -18,14 +19,19 @@ module EbanqApi
     #
     # ==== Attributes
     #
-    # * +id+ (required) - The ID of the account to retrieve. (Number)
-    # * +options+ - hash of options for request, e.g. {perpage: 2, page: 1, sort: 'date'}
+    # * +id+ (required) - The ID of the account
+    # to retrieve. (Number)
+    # * +options+ - hash of options for request
+    # e.g. {perpage: 2, page: 1, sort: 'date'}
     # * * +perpage+ - Count of transactions per page (Number)
     # * * +page+ - Number of page with transactions (Number)
-    # * * +date_from+ - Start date for transactions. Format - YYYY-MM-DD (String)
+    # * * +date_from+ - Start date for transactions.
+    # Format - YYYY-MM-DD (String)
     # * * +date_to+ - End date for transactions. Format - YYYY-MM-DD (String)
-    # * * +sort+ - Sorting for transactions list. Allowed values: id, date, amount. (String)
-    # * * +order+ - Order of sorting for transactions list. Allowed values: asc, desc. (String)
+    # * * +sort+ - Sorting for transactions list.
+    # Allowed values: id, date, amount. (String)
+    # * * +order+ - Order of sorting for transactions list.
+    # Allowed values: asc, desc. (String)
     def show(id, options = {})
       @client.make_request :get, account_path(id), options
     end

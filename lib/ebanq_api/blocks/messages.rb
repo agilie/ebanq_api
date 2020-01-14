@@ -37,6 +37,8 @@ module EbanqApi
     #
     # ==== Attributes
     # * +id+ (required) - Message id (Number)
+    #
+    # @return Array
     def show(id)
       @client.make_request :get, messages_path(id)
     end

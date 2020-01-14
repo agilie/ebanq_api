@@ -16,6 +16,8 @@ module EbanqApi
 
     # Get all available Report types
     # /api/v1/reports
+    #
+    # @return Array
     def types
       @client.make_request :get, reports_path
     end

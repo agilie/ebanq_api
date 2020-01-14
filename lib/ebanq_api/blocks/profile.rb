@@ -39,6 +39,8 @@ module EbanqApi
 
     # Get list of allowed documents
     # /api/v1/profile/
+    #
+    # @return Array
     def list_of_allowed_documents
       @client.make_request :get, PROFILE_API_PATH
     end

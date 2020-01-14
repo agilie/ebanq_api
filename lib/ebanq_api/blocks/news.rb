@@ -16,9 +16,14 @@ module EbanqApi
 
     # Retrieve News entry
     # /api/v1/news/{id}
+    #
     # ==== Attributes
     #
     # * +id+ (required) - the ID of the news to retrieve. (Number)
+    #
+    # ==== Examples
+    #
+    #   client.news.show(5)
     def show(id)
       @client.make_request :get, news_path(id)
     end
@@ -30,6 +35,10 @@ module EbanqApi
     #
     # * +options+ - hash of options for request, e.g. {page: 1}
     # * * +page+ - Page number. (Number)
+    #
+    # ==== Examples
+    #
+    #   client.news.list
     def list(options = {})
       @client.make_request :get, news_path, options
     end

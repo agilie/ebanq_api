@@ -22,12 +22,16 @@ module EbanqApi
 
     # Load specific system settings (currencies)
     # /api/v1/settings/currencies
+    #
+    # @return Array
     def currencies
       @client.make_request :get, settings_path('currencies')
     end
 
     # Load specific system settings (countries)
     # /api/v1/settings/countries
+    #
+    # @return Array
     def countries
       @client.make_request :get, settings_path('countries')
     end
@@ -40,6 +44,8 @@ module EbanqApi
 
     # Load specific system settings
     # /api/v1/settings/fee-types
+    #
+    # @return Array
     def fee_types
       @client.make_request :get, settings_path('fee-types')
     end

@@ -50,6 +50,8 @@ module EbanqApi
 
     # Create a Transfer Request template
     # /api/v1/templates
+    #
+    # @return {}
     def create
       @client.make_request :put, templates_path
     end

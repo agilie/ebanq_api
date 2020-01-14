@@ -75,4 +75,3 @@ module EbanqApi
     end
   end
 end
-

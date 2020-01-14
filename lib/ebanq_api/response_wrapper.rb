@@ -16,7 +16,7 @@ module EbanqApi
         response.keys.each { |key| response[key] = wrap(response[key]) }
         wrap_hash(response)
       elsif response.is_a?(Array)
-        response.map { |value| wrap(value)}
+        response.map(&method(:wrap_hash))
       else
         response
       end

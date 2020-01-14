@@ -41,15 +41,6 @@ module EbanqApi
       @client.make_request :get, messages_path(id)
     end
 
-    # Delete messages thread
-    # /api/v1/messages/{id}
-    #
-    # ==== Attributes
-    # * +id+ (required) - Thread ID. (Number)
-    def delete_thread(id)
-      @client.make_request :delete, messages_path(id)
-    end
-
     # Retrieve all outgoing messages
     # /api/v1/messages/outgoing
     #
@@ -127,6 +118,15 @@ module EbanqApi
       }
 
       @client.make_request :post, messages_path('send/groups'), values
+    end
+
+    # Delete messages thread
+    # /api/v1/messages/{id}
+    #
+    # ==== Attributes
+    # * +id+ (required) - Thread ID. (Number)
+    def delete_thread(id)
+      @client.make_request :delete, messages_path(id)
     end
   end
 end

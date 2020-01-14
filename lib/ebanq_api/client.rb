@@ -37,15 +37,18 @@ module EbanqApi
     # * +values+ - values from request
     # Returns full body of response if no errors are found,
     # raise error otherwise.
-    def make_request(method, url, values = {})
+    def make_request(method, url, params = {})
+      path = "#{EbanqApi.base_url}/#{url}"
       response = if method == :get
-                   RestClient.get("#{EbanqApi.base_url}/#{url}", headers)
+                   RestClient.get(path, headers.merge!(params: params))
                  else
-                   RestClient.post("#{EbanqApi.base_url}/#{url}", values,
-                                   headers)
+                   RestClient.post(path, params, headers)
                  end
-      result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
+      if !response.body.empty?
+        process_response(response)
+      else
+        {}
+      end
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end
@@ -58,6 +61,11 @@ module EbanqApi
     # Declares an profile instance.
     def profile
       @profile ||= EbanqApi::Profile.new(self)
+    end
+
+    # Declares an accounts instance.
+    def accounts
+      @accounts ||= EbanqApi::Accounts.new(self)
     end
 
     private
@@ -78,6 +86,11 @@ module EbanqApi
     def parse_failed(response)
       error = ERROR_CODES[response['code']].new(response)
       raise error, error.message
+    end
+
+    def process_response(response)
+      result = JSON.parse(response.body)
+      success?(result['code']) ? result['response'] : parse_failed(result)
     end
   end
 end

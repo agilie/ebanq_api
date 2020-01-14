@@ -28,6 +28,11 @@ module EbanqApi
     # * * +sort+ - Order of sorting for messages list.
     # Allowed values: asc, desc.
     # * * +search+ - Part of subject of text of messages for search. (String)
+    #
+    # ==== Examples
+    #
+    #   options = {page: 1, per_page: 3, order: 'subject', sort: 'asc'}
+    #   client.messages.list
     def list(options = {})
       @client.make_request :get, messages_path, options
     end
@@ -38,6 +43,10 @@ module EbanqApi
     # ==== Attributes
     # * +id+ (required) - Message id (Number)
     #
+    #
+    # ==== Examples
+    #
+    #   client.messages.show(4)
     # @return Array
     def show(id)
       @client.make_request :get, messages_path(id)
@@ -57,12 +66,20 @@ module EbanqApi
     # * * +sort+ - Order of sorting for messages list.
     # Allowed values: asc, desc.
     # * * +search+ - Part of subject of text of messages for search. (String)
+    #
+    # ==== Examples
+    #
+    #   client.messages.outgoing(page: 1, per_page: 2)
     def outgoing(options = {})
       @client.make_request :get, messages_path('outgoing'), options
     end
 
     # Get unread messages count
     # /api/v1/messages/unread-count
+    #
+    # ==== Examples
+    #
+    #   client.messages.unread_count
     def unread_count
       @client.make_request :get, messages_path('unread-count')
     end
@@ -75,6 +92,10 @@ module EbanqApi
     # * +body+ (required) - (String)
     # * +recipient+  - (String)
     # * +thread_id+  - (Number)
+    #
+    # ==== Examples
+    #
+    #   client.messages.send_to_administrator('test subject', 'test body')
     def send_to_administrator(subject, body, recipient = '', thread_id = '')
       values = {
         recipient: recipient,
@@ -93,6 +114,10 @@ module EbanqApi
     # * +subject+ (required) - (String)
     # * +body+ (required) - (String)
     # * +thread_id+  - (Number)
+    #
+    # ==== Examples
+    #
+    #   client.messages.send_to_all('subject', 'body')
     def send_to_all(subject, body, thread_id = '')
       values = {
         subject: subject,
@@ -111,6 +136,10 @@ module EbanqApi
     # * +body+ (required) - (String)
     # * +recipient+  - (String)
     # * +thread_id+  - (Number)
+    #
+    # ==== Examples
+    #
+    #   client.messages.send_to_a_group('subject', 'body')
     def send_to_a_group(subject, body, recipient = '', thread_id = '')
       values = {
         recipient: recipient,
@@ -127,6 +156,10 @@ module EbanqApi
     #
     # ==== Attributes
     # * +id+ (required) - Thread ID. (Number)
+    #
+    # ==== Examples
+    #
+    #   client.messages.show(4)
     def delete_thread(id)
       @client.make_request :delete, messages_path(id)
     end

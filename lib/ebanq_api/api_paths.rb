@@ -17,8 +17,13 @@ module EbanqApi
     TEMPLATES_API_PATH = 'api/v1/templates'
 
     # Return /api/v1/auth path
-    def auth_path(action)
+    def auth_path(action = '')
       "#{AUTH_API_PATH}/#{action}"
+    end
+
+    # Return /api/v1/profile path
+    def profile_path(action = '')
+      "#{PROFILE_API_PATH}/#{action}"
     end
 
     # Return /api/v1/accounts path

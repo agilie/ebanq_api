@@ -42,6 +42,10 @@ module EbanqApi
     #
     # * +token+ (required) - A user token (String)
     # * +secret+ (required) - A user secret (String)
+    #
+    # ==== Examples
+    #
+    #   client.auth.login_with_token('token', 'secret')
     def login_with_token(token, secret)
       values = {
         token: token,
@@ -80,6 +84,10 @@ module EbanqApi
     # ==== Attributes
     #
     # * +name+ (required) - A valid user name or e-mail address (String)
+    #
+    # ==== Examples
+    #
+    #   client.auth.request_new_password('John')
     def request_new_password(name)
       values = {
         name: name

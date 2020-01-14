@@ -31,6 +31,10 @@ module EbanqApi
     # * * +date_from+ - Start date for transactions.
     # Format - YYYY-MM-DD (String)
     # * * +date_to+ - End date for transactions. Format - YYYY-MM-DD (String)
+    #
+    # ==== Examples
+    #
+    #   client.requests.list(sort: 'description')
     def list(options = {})
       @client.make_request :get, requests_path, options
     end
@@ -40,6 +44,10 @@ module EbanqApi
     # ==== Attributes
     #
     # * +id+ (required) - Id of the transfer request (Number)
+    #
+    # ==== Examples
+    #
+    #   client.requests.show(1)
     def show(id)
       @client.make_request :get, requests_path(id)
     end
@@ -114,6 +122,27 @@ module EbanqApi
     # * * +fee_type+ (required) -  (Number)
     # * * +description+ - (String)
     # * +tan+ - security number (String)
+    #
+    # ==== Examples
+    #
+    #   beneficiary_bank =  EbanqApi::BeneficiaryBank.new('swift', 'name', 'address','location','country','abartn')
+    #   beneficiary_customer = EbanqApi::BeneficiaryCustomer.new('name', 'address', 'iban')
+    #   additional_info = EbanqApi::AdditionalInfo.new('information_ref')
+    #   intermediary_bank =  EbanqApi::IntermediaryBank.new('swift', 'name', 'address','location','country','abartn', 'iban')
+    #
+    #   params = {
+    #     user: 'John',
+    #     account_from: 1,
+    #     beneficiary_bank: beneficiary_bank,
+    #     beneficiary_customer: beneficiary_customer,
+    #     additional_info: additional_info,
+    #     is_intermediary_bank: 0,
+    #     intermediary_bank: intermediary_bank,
+    #     amount: 1,
+    #     currency: 1
+    #   }
+    #
+    #   client.requests.create_owt(params)
     def create_owt(params)
       params[:beneficiary_bank] = params[:beneficiary_bank].to_hash
       params[:beneficiary_customer] = params[:beneficiary_customer].to_hash

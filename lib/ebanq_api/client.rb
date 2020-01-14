@@ -39,16 +39,14 @@ module EbanqApi
     # raise error otherwise.
     def make_request(method, url, params = {})
       path = "#{EbanqApi.base_url}/#{url}"
-      response = if method == :get
-                   RestClient.get(path, headers.merge!(params: params))
-                 else
-                   RestClient.post(path, params, headers)
+      response = case method
+                 when :get then get(path, params, headers)
+                 when :post then post(path, params, headers)
+                 when :delete then delete(path, headers)
+                 else raise 'Error'
                  end
-      if !response.body.empty?
-        process_response(response)
-      else
-        {}
-      end
+
+      process_raw_response(response)
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
     end
@@ -68,7 +66,46 @@ module EbanqApi
       @accounts ||= EbanqApi::Accounts.new(self)
     end
 
+    # Declares an news instance.
+    def news
+      @news ||= EbanqApi::News.new(self)
+    end
+
+    # Declares an messages instance.
+    def messages
+      @messages ||= EbanqApi::Messages.new(self)
+    end
+
     private
+
+    def get(path, params, headers)
+      RestClient::Request.execute(method: :get, url: path,
+                                  timeout: 10,
+                                  headers: headers
+                                             .merge!(params: params))
+    end
+
+    def post(path, params, headers)
+      RestClient.post(path, params, headers)
+    end
+
+    def delete(path, headers)
+      RestClient.delete path, headers
+    end
+
+    def process_raw_response(response)
+      !response.body.empty? ? process_response_body(response) : {}
+    end
+
+    def parse_failed(response)
+      error = ERROR_CODES[response['code']].new(response)
+      raise error, error.message
+    end
+
+    def process_response_body(response)
+      result = JSON.parse(response.body)
+      success?(result['code']) ? result['response'] : parse_failed(result)
+    end
 
     def headers
       headers = {
@@ -81,16 +118,6 @@ module EbanqApi
 
     def success?(code)
       code.to_i >= 200 && code.to_i < 300
-    end
-
-    def parse_failed(response)
-      error = ERROR_CODES[response['code']].new(response)
-      raise error, error.message
-    end
-
-    def process_response(response)
-      result = JSON.parse(response.body)
-      success?(result['code']) ? result['response'] : parse_failed(result)
     end
   end
 end

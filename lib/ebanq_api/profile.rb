@@ -30,11 +30,11 @@ module EbanqApi
     # ==== Attributes
     #
     # * +uid+ (required) - The id of the user (Number)
-    # * +fields+ (required) - hash of params which needs to update,
+    # * +params+ (required) - hash of params which needs to update,
     # e.g. {first_name: 'John', last_name: 'Doe'}
-    def update(uid, fields)
+    def update(uid, params)
       @client.make_request :post,
-                           auth_path(uid), fields
+                           auth_path(uid), params
     end
 
     # Get list of allowed documents

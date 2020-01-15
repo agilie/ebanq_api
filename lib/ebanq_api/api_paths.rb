@@ -15,6 +15,7 @@ module EbanqApi
     REPORTS_API_PATH = 'api/v1/reports'
     SETTINGS_API_PATH = 'api/v1/settings'
     TEMPLATES_API_PATH = 'api/v1/templates'
+    TRANSACTIONS_API_PATH = 'api/v1/transaction'
 
     # Return /api/v1/auth path
     def auth_path(action = '')
@@ -64,6 +65,11 @@ module EbanqApi
     # Return /api/v1/templates path
     def templates_path(action = '')
       "#{TEMPLATES_API_PATH}/#{action}"
+    end
+
+    # Return /api/v1/transactions path
+    def transactions_path(action = '')
+      "#{TRANSACTIONS_API_PATH}/#{action}"
     end
   end
 end

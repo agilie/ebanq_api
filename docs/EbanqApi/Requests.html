@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class EbanqApi::Requests - Ebanq</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ApiPaths.html">EbanqApi::ApiPaths</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-approve">#approve</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-create_cft">#create_cft</a>
+    
+    <li ><a href="#method-i-create_owt">#create_owt</a>
+    
+    <li ><a href="#method-i-create_tba">#create_tba</a>
+    
+    <li ><a href="#method-i-create_tbu">#create_tbu</a>
+    
+    <li ><a href="#method-i-list">#list</a>
+    
+    <li ><a href="#method-i-show">#show</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-EbanqApi::Requests">
+  <h1 id="class-EbanqApi::Requests" class="class">
+    class EbanqApi::Requests
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents an requests functional of Ebanq REST Api.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(client)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declares an client instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
+  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-approve" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">approve</span><span
+            class="method-args">(request_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Approve one transfer request /api/v1/requests/approve</p>
+
+<h4 id="method-i-approve-label-Attributes">Attributes<span><a href="#method-i-approve-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>request_id</code> (required) - (Number)</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="approve-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">approve</span>(<span class="ruby-identifier">request_id</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
+                       <span class="ruby-identifier">requests_path</span>(<span class="ruby-string">&#39;approve&#39;</span>),
+                       <span class="ruby-identifier">request_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">request_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_cft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_cft</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create CFT request /api/v1/requests/cft</p>
+
+<h4 id="method-i-create_cft-label-Attributes">Attributes<span><a href="#method-i-create_cft-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params</code> - hash of params for request,</p>
+</li></ul>
+
+<p>e.g. {account_from: 1, card_to: 2, amount: 5}</p>
+<ul><li><ul><li>
+<p><code>account_from</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>card_to</code> (required) - Id of the card (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>amount</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>description</code> - (String)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>tan</code> - security number (String)</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="create_cft-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_cft</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;cft&#39;</span>, <span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_owt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_owt</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create OWT request /api/v1/requests/owt</p>
+
+<h4 id="method-i-create_owt-label-Attributes">Attributes<span><a href="#method-i-create_owt-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>options</code> - hash of options for request,</p>
+</li></ul>
+
+<p>e.g. {perpage: 2, page: 1, sort: &#39;date&#39;}</p>
+<ul><li><ul><li>
+<p><code>user</code> - Name of the user</p>
+</li></ul>
+</li><li><ul><li><ul><li>
+<p>Required if request sent by administrator (String)</p>
+</li></ul>
+</li></ul>
+</li><li><ul><li>
+<p><code>account_from</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>beneficiary_bank</code>  (required) - instance of <a
+href="BeneficiaryBank.html">BeneficiaryBank</a></p>
+</li></ul>
+</li><li><ul><li>
+<p><code>beneficiary_customer</code> (required) - instance of <a
+href="BeneficiaryCustomer.html">BeneficiaryCustomer</a></p>
+</li></ul>
+</li><li><ul><li>
+<p><code>additional_info</code> (required) - instance of <a
+href="AdditionalInfo.html">AdditionalInfo</a></p>
+</li></ul>
+</li><li><ul><li>
+<p><code>is_intermediary_bank</code> (required) - (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>intermediary_bank</code> - instance of <a
+href="IntermediaryBank.html">IntermediaryBank</a></p>
+</li></ul>
+</li><li><ul><li>
+<p><code>amount</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>currency</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>fee_type</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>description</code> - (String)</p>
+</li></ul>
+</li><li>
+<p><code>tan</code> - security number (String)</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="create_owt-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_owt</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_bank</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_bank</span>].<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_customer</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_customer</span>].<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:additional_info</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:additional_info</span>].<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:intermediary_bank</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:intermediary_bank</span>].<span class="ruby-identifier">to_hash</span>
+
+  <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;owt&#39;</span>, <span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_tba" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_tba</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create TBA request /api/v1/requests/tba</p>
+
+<h4 id="method-i-create_tba-label-Attributes">Attributes<span><a href="#method-i-create_tba-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params</code> - hash of params for request,</p>
+</li></ul>
+
+<p>e.g. {user: &#39;John&#39;, account_from: 1, account_to: 2, amount: 5}</p>
+<ul><li><ul><li>
+<p><code>user</code> - Name of the user</p>
+</li></ul>
+</li></ul>
+
+<p>Required if request sent by administrator (String)</p>
+<ul><li><ul><li>
+<p><code>account_from</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>account_to</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>amount</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>description</code> - (String)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>tan</code> - security number (String)</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="create_tba-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_tba</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;tba&#39;</span>, <span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_tbu" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_tbu</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create TBU request /api/v1/requests/tbu</p>
+
+<h4 id="method-i-create_tbu-label-Attributes">Attributes<span><a href="#method-i-create_tbu-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>params</code> - hash of params for request,</p>
+</li></ul>
+
+<p>e.g. {user: &#39;John&#39;, account_from: 1, account_to: 2, amount: 5}</p>
+<ul><li><ul><li>
+<p><code>user</code> - Name of the user</p>
+</li></ul>
+</li></ul>
+
+<p>*Required if request sent by administrator (String)</p>
+<ul><li><ul><li>
+<p><code>account_from</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>account_to</code> (required) - Id of account (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>amount</code> (required) -  (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>description</code> - (String)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>user_to</code> (required) -  Name of recipient user (String)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>tan</code> - security number (String)</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="create_tbu-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_tbu</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;tbu&#39;</span>, <span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a list of all transfer request /api/v1/requests/</p>
+
+<h4 id="method-i-list-label-Attributes">Attributes<span><a href="#method-i-list-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>options</code> - hash of options for request,</p>
+</li></ul>
+
+<p>e.g. {sort: &#39;description&#39;, order: &#39;asc&#39;}</p>
+<ul><li><ul><li>
+<p><code>sort</code> - Sorting for transactions list.</p>
+</li></ul>
+</li></ul>
+
+<p>Allowed values: id, date, amount, description. (String)</p>
+<ul><li><ul><li>
+<p><code>order</code> - Order of sorting for transactions list.</p>
+</li></ul>
+</li></ul>
+
+<p>Allowed values: asc, desc. (String)</p>
+<ul><li><ul><li>
+<p><code>currency</code> - The ID of the transfer request currency (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>request_types</code> - Type of request (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>request_status</code> - Status of the request (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>date_from</code> - Start date for transactions.</p>
+</li></ul>
+</li></ul>
+
+<p>Format - YYYY-MM-DD (String)</p>
+<ul><li><ul><li>
+<p><code>date_to</code> - End date for transactions. Format - YYYY-MM-DD
+(String)</p>
+</li></ul>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">requests_path</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get one transfer request /api/v1/requests/{id}</p>
+
+<h4 id="method-i-show-label-Attributes">Attributes<span><a href="#method-i-show-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>id</code> (required) - Id of the transfer request (Number)</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">requests_path</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(type, params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">params</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
+                       <span class="ruby-identifier">requests_path</span>(<span class="ruby-identifier">type</span>),
+                       <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

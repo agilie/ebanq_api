@@ -104,6 +104,10 @@ module EbanqApi
       @templates ||= EbanqApi::Templates.new(self)
     end
 
+    def transactions
+      @transactions ||= EbanqApi::Transactions.new(self)
+    end
+
     private
 
     def success?(code)

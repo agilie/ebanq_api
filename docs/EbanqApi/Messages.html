@@ -154,7 +154,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -195,12 +195,17 @@
 <ul><li>
 <p><code>id</code> (required) - Thread ID. (Number)</p>
 </li></ul>
+
+<h4 id="method-i-delete_thread-label-Examples">Examples<span><a href="#method-i-delete_thread-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">4</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="delete_thread-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 49</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 163</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_thread</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:delete</span>, <span class="ruby-identifier">messages_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -258,12 +263,18 @@
 (String)</p>
 </li></ul>
 </li></ul>
+
+<h4 id="method-i-list-label-Examples">Examples<span><a href="#method-i-list-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = {<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>, <span class="ruby-identifier">order</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;subject&#39;</span>, <span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;asc&#39;</span>}
+<span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">list</span>
+</pre>
           
           
 
           
           <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 31</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">messages_path</span>, <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>
@@ -321,12 +332,17 @@
 (String)</p>
 </li></ul>
 </li></ul>
+
+<h4 id="method-i-outgoing-label-Examples">Examples<span><a href="#method-i-outgoing-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">outgoing</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="outgoing-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 67</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">outgoing</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">messages_path</span>(<span class="ruby-string">&#39;outgoing&#39;</span>), <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>
@@ -365,12 +381,17 @@
 </li><li>
 <p><code>thread_id</code>  - (Number)</p>
 </li></ul>
+
+<h4 id="method-i-send_to_a_group-label-Examples">Examples<span><a href="#method-i-send_to_a_group-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">send_to_a_group</span>(<span class="ruby-string">&#39;subject&#39;</span>, <span class="ruby-string">&#39;body&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="send_to_a_group-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 121</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 143</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_a_group</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">recipient</span> = <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">thread_id</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">recipient</span><span class="ruby-operator">:</span> <span class="ruby-identifier">recipient</span>,
@@ -416,12 +437,17 @@
 </li><li>
 <p><code>thread_id</code>  - (Number)</p>
 </li></ul>
+
+<h4 id="method-i-send_to_administrator-label-Examples">Examples<span><a href="#method-i-send_to_administrator-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">send_to_administrator</span>(<span class="ruby-string">&#39;test subject&#39;</span>, <span class="ruby-string">&#39;test body&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="send_to_administrator-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 85</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_administrator</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">recipient</span> = <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-identifier">thread_id</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">recipient</span><span class="ruby-operator">:</span> <span class="ruby-identifier">recipient</span>,
@@ -465,12 +491,17 @@
 </li><li>
 <p><code>thread_id</code>  - (Number)</p>
 </li></ul>
+
+<h4 id="method-i-send_to_all-label-Examples">Examples<span><a href="#method-i-send_to_all-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">send_to_all</span>(<span class="ruby-string">&#39;subject&#39;</span>, <span class="ruby-string">&#39;body&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="send_to_all-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 103</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 121</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_all</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">thread_id</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-identifier">subject</span>,
@@ -509,12 +540,19 @@
 <ul><li>
 <p><code>id</code> (required) - Message id (Number)</p>
 </li></ul>
+
+<h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">4</span>)
+</pre>
+
+<p>@return Array</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 40</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">messages_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -542,12 +580,17 @@
         <div class="method-description">
           
           <p>Get unread messages count /api/v1/messages/unread-count</p>
+
+<h4 id="method-i-unread_count-label-Examples">Examples<span><a href="#method-i-unread_count-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">unread_count</span>
+</pre>
           
           
 
           
           <div class="method-source-code" id="unread_count-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/messages.rb, line 73</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/messages.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">unread_count</span>
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">messages_path</span>(<span class="ruby-string">&#39;unread-count&#39;</span>)
 <span class="ruby-keyword">end</span></pre>

@@ -160,7 +160,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -212,7 +212,7 @@
 
           
           <div class="method-source-code" id="login-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">device_id</span>, <span class="ruby-identifier">push_token</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">username</span>,
@@ -261,7 +261,7 @@
 
           
           <div class="method-source-code" id="login_by-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 100</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_by</span>(<span class="ruby-identifier">pin</span>, <span class="ruby-identifier">device_id</span>, <span class="ruby-identifier">push_token</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">pin</span><span class="ruby-operator">:</span> <span class="ruby-identifier">pin</span>,
@@ -304,12 +304,17 @@ party clients. /api/v1/auth/login_token</p>
 </li><li>
 <p><code>secret</code> (required) - A user secret (String)</p>
 </li></ul>
+
+<h4 id="method-i-login_with_token-label-Examples">Examples<span><a href="#method-i-login_with_token-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">login_with_token</span>(<span class="ruby-string">&#39;token&#39;</span>, <span class="ruby-string">&#39;secret&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="login_with_token-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 45</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login_with_token</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">secret</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">token</span><span class="ruby-operator">:</span> <span class="ruby-identifier">token</span>,
@@ -348,7 +353,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="logout-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 57</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logout</span>
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
                        <span class="ruby-identifier">auth_path</span>(<span class="ruby-string">&#39;logout&#39;</span>)
@@ -387,7 +392,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="logout_device-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 68</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logout_device</span>(<span class="ruby-identifier">device_id</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">device_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">device_id</span>
@@ -441,7 +446,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="pass_reset_token-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 153</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 161</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pass_reset_token</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">timestamp</span>, <span class="ruby-identifier">hashed_pass</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">uid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uid</span>,
@@ -488,7 +493,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="refresh_token-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 133</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 141</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">refresh_token</span>(<span class="ruby-identifier">pin</span>, <span class="ruby-identifier">device_id</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">pin</span><span class="ruby-operator">:</span> <span class="ruby-identifier">pin</span>,
@@ -528,12 +533,17 @@ party clients. /api/v1/auth/login_token</p>
 <ul><li>
 <p><code>name</code> (required) - A valid user name or e-mail address (String)</p>
 </li></ul>
+
+<h4 id="method-i-request_new_password-label-Examples">Examples<span><a href="#method-i-request_new_password-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">request_new_password</span>(<span class="ruby-string">&#39;John&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="request_new_password-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 83</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 91</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">request_new_password</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>
@@ -576,7 +586,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="reset_password-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 188</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 196</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_password</span>(<span class="ruby-identifier">uid</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">uid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">uid</span>
@@ -621,7 +631,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="update_push_token-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 171</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 179</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_push_token</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">os_type</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">token</span><span class="ruby-operator">:</span> <span class="ruby-identifier">token</span>,
@@ -666,7 +676,7 @@ party clients. /api/v1/auth/login_token</p>
 
           
           <div class="method-source-code" id="update_user_pin-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/auth.rb, line 117</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/auth.rb, line 125</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update_user_pin</span>(<span class="ruby-identifier">pin</span>)
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">pin</span><span class="ruby-operator">:</span> <span class="ruby-identifier">pin</span>

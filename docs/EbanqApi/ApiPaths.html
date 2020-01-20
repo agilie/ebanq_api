@@ -73,7 +73,17 @@
     
     <li ><a href="#method-i-news_path">#news_path</a>
     
+    <li ><a href="#method-i-profile_path">#profile_path</a>
+    
+    <li ><a href="#method-i-reports_path">#reports_path</a>
+    
     <li ><a href="#method-i-requests_path">#requests_path</a>
+    
+    <li ><a href="#method-i-settings_path">#settings_path</a>
+    
+    <li ><a href="#method-i-templates_path">#templates_path</a>
+    
+    <li ><a href="#method-i-transactions_path">#transactions_path</a>
     
   </ul>
 </div>
@@ -137,7 +147,27 @@
         <dd>
         
       
+        <dt id="REPORTS_API_PATH">REPORTS_API_PATH
+        
+        <dd>
+        
+      
         <dt id="REQUESTS_API_PATH">REQUESTS_API_PATH
+        
+        <dd>
+        
+      
+        <dt id="SETTINGS_API_PATH">SETTINGS_API_PATH
+        
+        <dd>
+        
+      
+        <dt id="TEMPLATES_API_PATH">TEMPLATES_API_PATH
+        
+        <dd>
+        
+      
+        <dt id="TRANSACTIONS_API_PATH">TRANSACTIONS_API_PATH
         
         <dd>
         
@@ -174,7 +204,7 @@
 
           
           <div class="method-source-code" id="account_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">account_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{ACCOUNT_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -192,7 +222,7 @@
         
         <div class="method-heading">
           <span class="method-name">auth_path</span><span
-            class="method-args">(action)</span>
+            class="method-args">(action = '')</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -207,8 +237,8 @@
 
           
           <div class="method-source-code" id="auth_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">action</span>)
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{AUTH_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -240,7 +270,7 @@
 
           
           <div class="method-source-code" id="cards_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 37</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">cards_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{CARDS_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -273,7 +303,7 @@
 
           
           <div class="method-source-code" id="messages_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">messages_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{MESSAGES_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -306,9 +336,75 @@
 
           
           <div class="method-source-code" id="news_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 27</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">news_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{NEWS_API_PATH}/#{action}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-profile_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile_path</span><span
+            class="method-args">(action = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return /api/v1/profile path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="profile_path-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">profile_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-node">&quot;#{PROFILE_API_PATH}/#{action}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reports_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reports_path</span><span
+            class="method-args">(action = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return /api/v1/reports path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reports_path-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reports_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-node">&quot;#{REPORTS_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -339,9 +435,108 @@
 
           
           <div class="method-source-code" id="requests_path-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">requests_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-node">&quot;#{REQUESTS_API_PATH}/#{action}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-settings_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">settings_path</span><span
+            class="method-args">(action = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return /api/v1/settings path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="settings_path-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">settings_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-node">&quot;#{SETTINGS_API_PATH}/#{action}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-templates_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templates_path</span><span
+            class="method-args">(action = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return /api/v1/templates path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="templates_path-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">templates_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-node">&quot;#{TEMPLATES_API_PATH}/#{action}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transactions_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transactions_path</span><span
+            class="method-args">(action = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return /api/v1/transactions path</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transactions_path-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/api_paths.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transactions_path</span>(<span class="ruby-identifier">action</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-node">&quot;#{TRANSACTIONS_API_PATH}/#{action}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

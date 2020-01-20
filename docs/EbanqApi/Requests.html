@@ -154,7 +154,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -200,7 +200,7 @@
 
           
           <div class="method-source-code" id="approve-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 131</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">approve</span>(<span class="ruby-identifier">request_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
                        <span class="ruby-identifier">requests_path</span>(<span class="ruby-string">&#39;approve&#39;</span>),
@@ -258,7 +258,7 @@
 
           
           <div class="method-source-code" id="create_cft-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 93</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 101</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_cft</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;cft&#39;</span>, <span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -337,12 +337,34 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 </li><li>
 <p><code>tan</code> - security number (String)</p>
 </li></ul>
+
+<h4 id="method-i-create_owt-label-Examples">Examples<span><a href="#method-i-create_owt-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">beneficiary_bank</span> =  <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">BeneficiaryBank</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;swift&#39;</span>, <span class="ruby-string">&#39;name&#39;</span>, <span class="ruby-string">&#39;address&#39;</span>,<span class="ruby-string">&#39;location&#39;</span>,<span class="ruby-string">&#39;country&#39;</span>,<span class="ruby-string">&#39;abartn&#39;</span>)
+<span class="ruby-identifier">beneficiary_customer</span> = <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">BeneficiaryCustomer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;name&#39;</span>, <span class="ruby-string">&#39;address&#39;</span>, <span class="ruby-string">&#39;iban&#39;</span>)
+<span class="ruby-identifier">additional_info</span> = <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">AdditionalInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;information_ref&#39;</span>)
+<span class="ruby-identifier">intermediary_bank</span> =  <span class="ruby-constant">EbanqApi</span><span class="ruby-operator">::</span><span class="ruby-constant">IntermediaryBank</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;swift&#39;</span>, <span class="ruby-string">&#39;name&#39;</span>, <span class="ruby-string">&#39;address&#39;</span>,<span class="ruby-string">&#39;location&#39;</span>,<span class="ruby-string">&#39;country&#39;</span>,<span class="ruby-string">&#39;abartn&#39;</span>, <span class="ruby-string">&#39;iban&#39;</span>)
+
+<span class="ruby-identifier">params</span> = {
+  <span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;John&#39;</span>,
+  <span class="ruby-identifier">account_from</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+  <span class="ruby-identifier">beneficiary_bank</span><span class="ruby-operator">:</span> <span class="ruby-identifier">beneficiary_bank</span>,
+  <span class="ruby-identifier">beneficiary_customer</span><span class="ruby-operator">:</span> <span class="ruby-identifier">beneficiary_customer</span>,
+  <span class="ruby-identifier">additional_info</span><span class="ruby-operator">:</span> <span class="ruby-identifier">additional_info</span>,
+  <span class="ruby-identifier">is_intermediary_bank</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+  <span class="ruby-identifier">intermediary_bank</span><span class="ruby-operator">:</span> <span class="ruby-identifier">intermediary_bank</span>,
+  <span class="ruby-identifier">amount</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>,
+  <span class="ruby-identifier">currency</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+}
+
+<span class="ruby-identifier">client</span>.<span class="ruby-identifier">requests</span>.<span class="ruby-identifier">create_owt</span>(<span class="ruby-identifier">params</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="create_owt-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 117</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 146</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_owt</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_bank</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_bank</span>].<span class="ruby-identifier">to_hash</span>
   <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_customer</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:beneficiary_customer</span>].<span class="ruby-identifier">to_hash</span>
@@ -409,7 +431,7 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 
           
           <div class="method-source-code" id="create_tba-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 60</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_tba</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;tba&#39;</span>, <span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -474,7 +496,7 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 
           
           <div class="method-source-code" id="create_tbu-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 78</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_tbu</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">create</span>(<span class="ruby-string">&#39;tbu&#39;</span>, <span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -541,12 +563,17 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 (String)</p>
 </li></ul>
 </li></ul>
+
+<h4 id="method-i-list-label-Examples">Examples<span><a href="#method-i-list-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">requests</span>.<span class="ruby-identifier">list</span>(<span class="ruby-identifier">sort</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;description&#39;</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 34</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">requests_path</span>, <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>
@@ -579,12 +606,17 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 <ul><li>
 <p><code>id</code> (required) - Id of the transfer request (Number)</p>
 </li></ul>
+
+<h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">requests</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">1</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 43</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">requests_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -625,7 +657,7 @@ href="IntermediaryBank.html">IntermediaryBank</a></p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/requests.rb, line 139</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/requests.rb, line 168</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
                        <span class="ruby-identifier">requests_path</span>(<span class="ruby-identifier">type</span>),

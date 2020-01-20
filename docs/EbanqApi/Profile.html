@@ -144,7 +144,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/profile.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -180,14 +180,21 @@
         <div class="method-description">
           
           <p>Get list of allowed documents /api/v1/profile/</p>
+
+<h4 id="method-i-list_of_allowed_documents-label-Examples">Examples<span><a href="#method-i-list_of_allowed_documents-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">list_of_allowed_documents</span>
+</pre>
+
+<p>@return Array</p>
           
           
 
           
           <div class="method-source-code" id="list_of_allowed_documents-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/profile.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list_of_allowed_documents</span>
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-constant">PROFILE_API_PATH</span>
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">profile_path</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -218,12 +225,17 @@
 <ul><li>
 <p><code>uid</code> (required) - The id of the user (Number)</p>
 </li></ul>
+
+<h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">1</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/profile.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">uid</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -260,12 +272,17 @@
 </li></ul>
 
 <p>e.g. {first_name: &#39;John&#39;, last_name: &#39;Doe&#39;}</p>
+
+<h4 id="method-i-update-label-Examples">Examples<span><a href="#method-i-update-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">profile</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">1</span>,  <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;John&#39;</span> )
+</pre>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 35</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/profile.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
                        <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>), <span class="ruby-identifier">params</span>

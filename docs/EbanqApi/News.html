@@ -142,7 +142,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/news.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/news.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -186,12 +186,17 @@
 <p><code>page</code> - Page number. (Number)</p>
 </li></ul>
 </li></ul>
+
+<h4 id="method-i-list-label-Examples">Examples<span><a href="#method-i-list-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">news</span>.<span class="ruby-identifier">list</span>
+</pre>
           
           
 
           
           <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/news.rb, line 33</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/news.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">news_path</span>, <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>
@@ -224,12 +229,17 @@
 <ul><li>
 <p><code>id</code> (required) - the ID of the news to retrieve. (Number)</p>
 </li></ul>
+
+<h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">news</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">5</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/news.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/news.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">news_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>

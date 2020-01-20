@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class EbanqApi::Cards - Ebanq</title>
+<title>class EbanqApi::Transactions - Ebanq</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -83,7 +83,7 @@
     
     <li ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-list">#list</a>
+    <li ><a href="#method-i-prepare">#prepare</a>
     
     <li ><a href="#method-i-show">#show</a>
     
@@ -93,14 +93,14 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-EbanqApi::Cards">
-  <h1 id="class-EbanqApi::Cards" class="class">
-    class EbanqApi::Cards
+<main role="main" aria-labelledby="class-EbanqApi::Transactions">
+  <h1 id="class-EbanqApi::Transactions" class="class">
+    class EbanqApi::Transactions
   </h1>
 
   <section class="description">
     
-<p>This class represents an cards functional of Ebanq REST Api.</p>
+<p>This class represents an transactions functional of Ebanq REST Api.</p>
 
   </section>
 
@@ -142,7 +142,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/cards.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/transactions.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -164,11 +164,11 @@
        </header>
 
     
-      <div id="method-i-list" class="method-detail ">
+      <div id="method-i-prepare" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">list</span><span
-            class="method-args">()</span>
+          <span class="method-name">prepare</span><span
+            class="method-args">(type, account_from, account_to, amount, options = {})</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -177,22 +177,51 @@
 
         <div class="method-description">
           
-          <p>List all cards belonging to user /api/v1/cards</p>
+          <p>Get all transaction types and information for transfers
+/api/v1/transaction/prepare/</p>
 
-<h4 id="method-i-list-label-Examples">Examples<span><a href="#method-i-list-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h4 id="method-i-prepare-label-Attributes">Attributes<span><a href="#method-i-prepare-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>type</code> (required) - (String)</p>
+</li><li>
+<p><code>account_from</code> (required) - (Number)</p>
+</li><li>
+<p><code>account_to</code> (required) - (Number)</p>
+</li><li>
+<p><code>required</code> (required) - (Number)</p>
+</li><li>
+<p><code>options</code> - hash of options for request,</p>
+</li></ul>
 
-<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">list</span>
+<p>e.g. {user: &#39;sit&#39;, description: &#39;veniam commodo ex&#39;}</p>
+<ul><li><ul><li>
+<p><code>user</code> - (String)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>description</code> - (String)</p>
+</li></ul>
+</li></ul>
+
+<h4 id="method-i-prepare-label-Examples">Examples<span><a href="#method-i-prepare-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = { <span class="ruby-identifier">user</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;sit&#39;</span>, <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;veniam commodo ex&#39;</span> }
+<span class="ruby-identifier">client</span>.<span class="ruby-identifier">transactions</span>.<span class="ruby-identifier">prepart</span>(<span class="ruby-string">&#39;Lorem anim&#39;</span>, <span class="ruby-value">48327111</span>, <span class="ruby-value">-67357746</span>, <span class="ruby-value">-66138775</span>, <span class="ruby-identifier">options</span>)
 </pre>
-
-<p>@return Array</p>
           
           
 
           
-          <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/cards.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">cards_path</span>
+          <div class="method-source-code" id="prepare-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/transactions.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">account_from</span>, <span class="ruby-identifier">account_to</span>, <span class="ruby-identifier">amount</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">values</span> = {
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>,
+    <span class="ruby-identifier">account_from</span><span class="ruby-operator">:</span> <span class="ruby-identifier">account_from</span>,
+    <span class="ruby-identifier">account_to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">account_to</span>,
+    <span class="ruby-identifier">amount</span><span class="ruby-operator">:</span> <span class="ruby-identifier">amount</span>
+  }.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>, <span class="ruby-identifier">transactions_path</span>(<span class="ruby-string">&#39;prepare&#39;</span>), <span class="ruby-identifier">values</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -217,25 +246,25 @@
 
         <div class="method-description">
           
-          <p>Retrieve a Card /api/v1/cards/{id}/</p>
+          <p>Retrieve a transaction /api/v1/transaction/{id}</p>
 
 <h4 id="method-i-show-label-Attributes">Attributes<span><a href="#method-i-show-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>id</code> (required) - The ID of the card to retrieve. (Number)</p>
+<p><code>id</code> (required) - Transaction id (Number)</p>
 </li></ul>
 
 <h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
-<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">1</span>)
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">transactions</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">1</span>)
 </pre>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/cards.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/transactions.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">cards_path</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">transactions_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

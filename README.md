@@ -31,7 +31,7 @@ at config/initializers/ebanq_api.rb
 
 ```ruby
 EbanqApi.config do |config|
-  config.base_url = 'http://yourebanqdomain.com'
+    config.base_url = 'http://yourebanqdomain.com'
     config.token = 'put your user token here'
     config.secret = 'put your user secret here'
 end

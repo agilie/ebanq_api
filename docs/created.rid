@@ -1,19 +1,24 @@
-Fri, 17 Jan 2020 10:08:20 +0200
-README.md	Tue, 14 Jan 2020 18:07:50 +0200
-lib/ebanq_api/accounts.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/api_paths.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/auth.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/cards.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/client.rb	Fri, 17 Jan 2020 10:07:10 +0200
+Mon, 20 Jan 2020 18:15:26 +0200
+README.md	Mon, 20 Jan 2020 18:13:25 +0200
+lib/ebanq_api/api_paths.rb	Mon, 20 Jan 2020 18:15:15 +0200
+lib/ebanq_api/blocks/accounts.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/auth.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/cards.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/messages.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/news.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/profile.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/reports.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/requests.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/settings.rb	Mon, 20 Jan 2020 18:15:15 +0200
+lib/ebanq_api/blocks/templates.rb	Mon, 20 Jan 2020 18:13:20 +0200
+lib/ebanq_api/blocks/transactions.rb	Mon, 20 Jan 2020 18:15:15 +0200
+lib/ebanq_api/client.rb	Mon, 20 Jan 2020 18:15:15 +0200
 lib/ebanq_api/configuration.rb	Fri, 10 Jan 2020 15:52:17 +0200
 lib/ebanq_api/exceptions.rb	Fri, 10 Jan 2020 15:52:17 +0200
-lib/ebanq_api/messages.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/news.rb	Fri, 17 Jan 2020 10:07:10 +0200
 lib/ebanq_api/owt/additional_info.rb	Tue, 14 Jan 2020 18:05:11 +0200
 lib/ebanq_api/owt/beneficiary_bank.rb	Tue, 14 Jan 2020 18:05:11 +0200
 lib/ebanq_api/owt/beneficiary_customer.rb	Tue, 14 Jan 2020 18:05:11 +0200
-lib/ebanq_api/owt/common.rb	Fri, 17 Jan 2020 10:07:10 +0200
+lib/ebanq_api/owt/common.rb	Mon, 20 Jan 2020 17:23:41 +0200
 lib/ebanq_api/owt/intermediary_bank.rb	Tue, 14 Jan 2020 18:05:11 +0200
-lib/ebanq_api/profile.rb	Fri, 17 Jan 2020 10:07:10 +0200
-lib/ebanq_api/requests.rb	Fri, 17 Jan 2020 10:07:10 +0200
+lib/ebanq_api/response_wrapper.rb	Mon, 20 Jan 2020 18:13:20 +0200
 lib/ebanq_api/version.rb	Fri, 10 Jan 2020 15:52:17 +0200

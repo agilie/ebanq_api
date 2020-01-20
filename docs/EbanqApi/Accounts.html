@@ -144,7 +144,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/accounts.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/accounts.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -188,12 +188,19 @@ allowed to get all accounts of the particular user by bank-admin.
 <ul><li>
 <p><code>uid</code> - The ID of the account to retrieve. (Number)</p>
 </li></ul>
+
+<h4 id="method-i-list-label-Examples">Examples<span><a href="#method-i-list-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">client</span>.<span class="ruby-identifier">accounts</span>.<span class="ruby-identifier">list</span>
+</pre>
+
+<p>@return Array</p>
           
           
 
           
           <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/accounts.rb, line 48</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/accounts.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>(<span class="ruby-identifier">uid</span> = <span class="ruby-string">&#39;&#39;</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">account_path</span>(<span class="ruby-identifier">uid</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -236,12 +243,25 @@ allowed to get all accounts of the particular user by bank-admin.
 </li></ul>
 
 <p>e.g. {use_revenue_account: 1, apply_iwt: 1}</p>
+<ul><li><ul><li>
+<p><code>use_revenue_account</code> - Allowed values: 0, 1 (Number)</p>
+</li></ul>
+</li><li><ul><li>
+<p><code>apply_iwt</code> - Allowed values: 0, 1 (Number)</p>
+</li></ul>
+</li></ul>
+
+<h4 id="method-i-operation-label-Examples">Examples<span><a href="#method-i-operation-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = { <span class="ruby-identifier">use_revenue_account</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">apply_iwt</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span> }
+<span class="ruby-identifier">client</span>.<span class="ruby-identifier">accounts</span>.<span class="ruby-identifier">operation</span>(<span class="ruby-string">&#39;credit&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-value">6</span>, <span class="ruby-string">&#39;test&#39;</span>, <span class="ruby-identifier">options</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="operation-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/accounts.rb, line 62</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/accounts.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">operation</span>(<span class="ruby-identifier">operation</span>, <span class="ruby-identifier">account_id</span>, <span class="ruby-identifier">amount</span>, <span class="ruby-identifier">description</span>, <span class="ruby-identifier">options</span> = {})
   <span class="ruby-identifier">values</span> = {
     <span class="ruby-identifier">operation</span><span class="ruby-operator">:</span> <span class="ruby-identifier">operation</span>,
@@ -317,12 +337,18 @@ allowed to get all accounts of the particular user by bank-admin.
 </li></ul>
 
 <p>Allowed values: asc, desc. (String)</p>
+
+<h4 id="method-i-show-label-Examples">Examples<span><a href="#method-i-show-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> = { <span class="ruby-identifier">perpage</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span> }
+<span class="ruby-identifier">client</span>.<span class="ruby-identifier">accounts</span>.<span class="ruby-identifier">show</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">options</span>)
+</pre>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/accounts.rb, line 35</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/blocks/accounts.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">account_path</span>(<span class="ruby-identifier">id</span>), <span class="ruby-identifier">options</span>
 <span class="ruby-keyword">end</span></pre>

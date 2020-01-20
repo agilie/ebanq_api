@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class EbanqApi::Profile - Ebanq</title>
+<title>class EbanqApi::Cards - Ebanq</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -83,11 +83,9 @@
     
     <li ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-list_of_allowed_documents">#list_of_allowed_documents</a>
+    <li ><a href="#method-i-list">#list</a>
     
     <li ><a href="#method-i-show">#show</a>
-    
-    <li ><a href="#method-i-update">#update</a>
     
   </ul>
 </div>
@@ -95,14 +93,14 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-EbanqApi::Profile">
-  <h1 id="class-EbanqApi::Profile" class="class">
-    class EbanqApi::Profile
+<main role="main" aria-labelledby="class-EbanqApi::Cards">
+  <h1 id="class-EbanqApi::Cards" class="class">
+    class EbanqApi::Cards
   </h1>
 
   <section class="description">
     
-<p>This class represents an profile functional of Ebanq REST Api.</p>
+<p>This class represents an cards functional of Ebanq REST Api.</p>
 
   </section>
 
@@ -144,7 +142,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/cards.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
   <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
@@ -166,10 +164,10 @@
        </header>
 
     
-      <div id="method-i-list_of_allowed_documents" class="method-detail ">
+      <div id="method-i-list" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">list_of_allowed_documents</span><span
+          <span class="method-name">list</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -179,15 +177,15 @@
 
         <div class="method-description">
           
-          <p>Get list of allowed documents /api/v1/profile/</p>
+          <p>List all cards belonging to user /api/v1/cards</p>
           
           
 
           
-          <div class="method-source-code" id="list_of_allowed_documents-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_of_allowed_documents</span>
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-constant">PROFILE_API_PATH</span>
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File lib/ebanq_api/cards.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">cards_path</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -203,7 +201,7 @@
         
         <div class="method-heading">
           <span class="method-name">show</span><span
-            class="method-args">(uid)</span>
+            class="method-args">(id)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -212,63 +210,20 @@
 
         <div class="method-description">
           
-          <p>Get user profile data. /api/v1/auth/{uid}</p>
+          <p>Retrieve a Card /api/v1/cards/{id}/</p>
 
 <h4 id="method-i-show-label-Attributes">Attributes<span><a href="#method-i-show-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>uid</code> (required) - The id of the user (Number)</p>
+<p><code>id</code> (required) - The ID of the card to retrieve. (Number)</p>
 </li></ul>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">uid</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-update" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">update</span><span
-            class="method-args">(uid, params)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Update user profile data /api/v1/auth/{uid}</p>
-
-<h4 id="method-i-update-label-Attributes">Attributes<span><a href="#method-i-update-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
-<ul><li>
-<p><code>uid</code> (required) - The id of the user (Number)</p>
-</li><li>
-<p><code>params</code> (required) - hash of params which needs to update,</p>
-</li></ul>
-
-<p>e.g. {first_name: &#39;John&#39;, last_name: &#39;Doe&#39;}</p>
-          
-          
-
-          
-          <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File lib/ebanq_api/profile.rb, line 35</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">params</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:post</span>,
-                       <span class="ruby-identifier">auth_path</span>(<span class="ruby-identifier">uid</span>), <span class="ruby-identifier">params</span>
+            <pre><span class="ruby-comment"># File lib/ebanq_api/cards.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">make_request</span> <span class="ruby-value">:get</span>, <span class="ruby-identifier">cards_path</span>(<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

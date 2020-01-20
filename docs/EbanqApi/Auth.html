@@ -199,13 +199,13 @@
 
 <h4 id="method-i-login-label-Attributes">Attributes<span><a href="#method-i-login-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>username</code> (required) - A valid username</p>
+<p><code>username</code> (required) - A valid username (String)</p>
 </li><li>
-<p><code>password</code> (required) -  A valid password</p>
+<p><code>password</code> (required) -  A valid password (String)</p>
 </li><li>
-<p><code>device_id</code> (required) - Device ID</p>
+<p><code>device_id</code> (required) - Device ID (String)</p>
 </li><li>
-<p><code>push_token</code> - Push token</p>
+<p><code>push_token</code> - Push token (String)</p>
 </li></ul>
           
           
@@ -250,11 +250,11 @@
 
 <h4 id="method-i-login_by-label-Attributes">Attributes<span><a href="#method-i-login_by-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>pin</code> (required) - PIN code</p>
+<p><code>pin</code> (required) - PIN code (String)</p>
 </li><li>
-<p><code>device_id</code> (required) - Device ID</p>
+<p><code>device_id</code> (required) - Device ID (String)</p>
 </li><li>
-<p><code>push_token</code> (required) - Push Token</p>
+<p><code>push_token</code> (required) - Push Token (String)</p>
 </li></ul>
           
           
@@ -300,9 +300,9 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-login_with_token-label-Attributes">Attributes<span><a href="#method-i-login_with_token-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>token</code> (required) - A user token</p>
+<p><code>token</code> (required) - A user token (String)</p>
 </li><li>
-<p><code>secret</code> (required) - A user secret</p>
+<p><code>secret</code> (required) - A user secret (String)</p>
 </li></ul>
           
           
@@ -380,7 +380,7 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-logout_device-label-Attributes">Attributes<span><a href="#method-i-logout_device-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>device_id</code> (required) - Device ID</p>
+<p><code>device_id</code> (required) - Device ID (String)</p>
 </li></ul>
           
           
@@ -424,17 +424,18 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-pass_reset_token-label-Attributes">Attributes<span><a href="#method-i-pass_reset_token-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>uid</code> (required) - The uid of the user in the operation.</p>
+<p><code>uid</code> (required) - The uid of the user in the operation.
+(Number)</p>
 </li><li>
 <p><code>timestamp</code> (required) - The timestamp value from the</p>
 </li></ul>
 
-<p>reset password link.</p>
+<p>reset password link. (Number)</p>
 <ul><li>
 <p><code>hashed_pass</code> (required) - The hashed pass value from</p>
 </li></ul>
 
-<p>the reset password link.</p>
+<p>the reset password link. (String)</p>
           
           
 
@@ -478,9 +479,9 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-refresh_token-label-Attributes">Attributes<span><a href="#method-i-refresh_token-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>pin</code> (required) - PIN code</p>
+<p><code>pin</code> (required) - PIN code (String)</p>
 </li><li>
-<p><code>device_id</code> (required) - Device ID</p>
+<p><code>device_id</code> (required) - Device ID (String)</p>
 </li></ul>
           
           
@@ -525,7 +526,7 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-request_new_password-label-Attributes">Attributes<span><a href="#method-i-request_new_password-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>name</code> (required) - A valid user name or e-mail address</p>
+<p><code>name</code> (required) - A valid user name or e-mail address (String)</p>
 </li></ul>
           
           
@@ -568,7 +569,7 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-reset_password-label-Attributes">Attributes<span><a href="#method-i-reset_password-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>uid</code> (required) - The id of the user</p>
+<p><code>uid</code> (required) - The id of the user (Number)</p>
 </li></ul>
           
           
@@ -611,9 +612,9 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-update_push_token-label-Attributes">Attributes<span><a href="#method-i-update_push_token-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>token</code> (required) - Push token</p>
+<p><code>token</code> (required) - Push token (String)</p>
 </li><li>
-<p><code>os_type</code> (required) - OS type</p>
+<p><code>os_type</code> (required) - OS type (String)</p>
 </li></ul>
           
           
@@ -658,7 +659,7 @@ party clients. /api/v1/auth/login_token</p>
 
 <h4 id="method-i-update_user_pin-label-Attributes">Attributes<span><a href="#method-i-update_user_pin-label-Attributes">&para;</a> <a href="#top">&uarr;</a></span></h4>
 <ul><li>
-<p><code>pin</code> (required) - PIN code</p>
+<p><code>pin</code> (required) - PIN code (String)</p>
 </li></ul>
           
           

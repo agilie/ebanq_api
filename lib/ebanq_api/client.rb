@@ -3,12 +3,15 @@
 require 'rest_client'
 require 'json'
 require 'ebanq_api/exceptions'
+require 'ebanq_api/response_wrapper'
 
 # Client functionality
 module EbanqApi
   ##
   # This class represents client functionality.
   class Client
+    include ResponseWrapper
+
     ERROR_CODES = {
       400 => BadRequest,
       403 => Forbidden,
@@ -86,7 +89,16 @@ module EbanqApi
       @requests ||= EbanqApi::Requests.new(self)
     end
 
+    # Declares an reports instance.
+    def reports
+      @reports ||= EbanqApi::Reports.new(self)
+    end
+
     private
+
+    def success?(code)
+      code.to_i >= 200 && code.to_i < 300
+    end
 
     def get(path, params, headers)
       RestClient::Request.execute(method: :get, url: path,
@@ -103,18 +115,18 @@ module EbanqApi
       RestClient.delete path, headers
     end
 
-    def process_raw_response(response)
-      !response.body.empty? ? process_response_body(response) : OpenStruct.new
+    def process_raw_response(raw_response)
+      !raw_response.body.empty? ? process_response_body(raw_response) : {}
+    end
+
+    def process_response_body(raw_response)
+      result = JSON.parse(raw_response.body)
+      success?(result['code']) ? wrap(result['response']) : parse_failed(result)
     end
 
     def parse_failed(response)
       error = ERROR_CODES[response['code']].new(response)
       raise error, error.message
-    end
-
-    def process_response_body(response)
-      result = JSON.parse(response.body)
-      success?(result['code']) ? OpenStruct.new(result['response']) : parse_failed(result)
     end
 
     def headers
@@ -124,10 +136,6 @@ module EbanqApi
       }
       headers.merge!(services_token: @auth_token) if @auth_token
       headers
-    end
-
-    def success?(code)
-      code.to_i >= 200 && code.to_i < 300
     end
   end
 end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# Common helpers
+# Common owt block helpers
 module EbanqApi
   ##
-  # Common helpers
+  # Common owt block helpers
   module Common
     # Transform object to hash
     def to_hash

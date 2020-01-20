@@ -28,6 +28,5 @@ module EbanqApi
     def list
       @client.make_request :get, cards_path
     end
-
   end
 end

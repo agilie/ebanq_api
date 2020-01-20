@@ -43,12 +43,12 @@ module EbanqApi
     def make_request(method, url, params = {})
       path = "#{EbanqApi.base_url}/#{url}"
       response = case method
-                 when :get then get(path, params, headers)
-                 when :post then post(path, params, headers)
+                 when :get then get(path, headers, params)
+                 when :post then post(path, headers, params)
+                 when :put then put(path, headers, params)
                  when :delete then delete(path, headers)
                  else raise 'Error'
                  end
-
       process_raw_response(response)
     rescue RestClient::ResourceNotFound, SocketError, Errno::ECONNREFUSED => e
       raise e
@@ -99,21 +99,30 @@ module EbanqApi
       @settings ||= EbanqApi::Settings.new(self)
     end
 
+    # Declares an templates instance.
+    def templates
+      @templates ||= EbanqApi::Templates.new(self)
+    end
+
     private
 
     def success?(code)
       code.to_i >= 200 && code.to_i < 300
     end
 
-    def get(path, params, headers)
+    def get(path, headers, params = {})
       RestClient::Request.execute(method: :get, url: path,
                                   timeout: 10,
                                   headers: headers
                                              .merge!(params: params))
     end
 
-    def post(path, params, headers)
+    def post(path, headers, params = {})
       RestClient.post(path, params, headers)
+    end
+
+    def put(path, headers, params = {})
+      RestClient.put path, params, headers
     end
 
     def delete(path, headers)

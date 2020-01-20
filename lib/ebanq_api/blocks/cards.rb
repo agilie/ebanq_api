@@ -19,12 +19,21 @@ module EbanqApi
     # ==== Attributes
     #
     # * +id+ (required) - The ID of the card to retrieve. (Number)
+    #
+    # ==== Examples
+    #
+    #   client.cards.show(1)
     def show(id)
       @client.make_request :get, cards_path(id)
     end
 
     # List all cards belonging to user
     # /api/v1/cards
+    #
+    # ==== Examples
+    #
+    #   client.cards.list
+    # @return Array
     def list
       @client.make_request :get, cards_path
     end

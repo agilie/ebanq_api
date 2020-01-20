@@ -32,6 +32,11 @@ module EbanqApi
     # Allowed values: id, date, amount. (String)
     # * * +order+ - Order of sorting for transactions list.
     # Allowed values: asc, desc. (String)
+    #
+    # ==== Examples
+    #
+    #   options = { perpage: 2, page: 2 }
+    #   client.accounts.show(1, options)
     def show(id, options = {})
       @client.make_request :get, account_path(id), options
     end
@@ -45,6 +50,11 @@ module EbanqApi
     # ==== Attributes
     #
     # * +uid+ - The ID of the account to retrieve. (Number)
+    #
+    # ==== Examples
+    #
+    #   client.accounts.list
+    # @return Array
     def list(uid = '')
       @client.make_request :get, account_path(uid)
     end
@@ -59,6 +69,13 @@ module EbanqApi
     # * +description+ (required) - (String)
     # * +options+ - hash of additional options for request,
     # e.g. {use_revenue_account: 1, apply_iwt: 1}
+    # * *  +use_revenue_account+ - Allowed values: 0, 1 (Number)
+    # * *  +apply_iwt+ - Allowed values: 0, 1 (Number)
+    #
+    # ==== Examples
+    #
+    #   options = { use_revenue_account: 1, apply_iwt: 1 }
+    #   client.accounts.operation('credit', 1, 6, 'test', options)
     def operation(operation, account_id, amount, description, options = {})
       values = {
         operation: operation,

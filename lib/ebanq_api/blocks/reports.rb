@@ -16,6 +16,11 @@ module EbanqApi
 
     # Get all available Report types
     # /api/v1/reports
+    #
+    # ==== Examples
+    #
+    #   client.reports.types
+    # @return Array
     def types
       @client.make_request :get, reports_path
     end
@@ -46,6 +51,12 @@ module EbanqApi
     # In the case of a large volume of transactions
     # it's advisable to restrict the results using
     # the per_page parameter setting it to 3000. (String)
+    #
+    # ==== Examples
+    #
+    #   options = { page: 1, per_page: 'all',
+    #   sort: 'amount', user_name: 'John' }
+    #   client.reports.all_accounts_transactions(options)
     def all_accounts_transactions(options = {})
       @client.make_request :get, reports_path('aat'), options
     end
@@ -67,6 +78,11 @@ module EbanqApi
     # Allowed values: id, date, amount, description. (String)
     # * * +order+ - Order of sorting for transactions list.
     # Allowed values: asc, desc. (String)
+    #
+    # ==== Examples
+    #
+    #   options = { page: 1, sort: 'amount' }
+    #   client.reports.all_accounts_transactions(options)
     def all_accounts_balances(options = {})
       @client.make_request :get, reports_path('aab'), options
     end
@@ -97,6 +113,11 @@ module EbanqApi
     # In the case of a large volume of transactions it's advisable
     # to restrict the results using the per_page
     # parameter setting it to 3000. (String)
+    #
+    # ==== Examples
+    #
+    #   options = { page: 1, per_page: 'all', sort: 'amount', order: 'desc' }
+    #   client.reports.specific_account_statement(1, options)
     def specific_account_statement(account_id, options = {})
       @client.make_request :get, reports_path('sas'),
                            options.merge!(account_id: account_id)

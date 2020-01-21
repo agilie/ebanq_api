@@ -58,6 +58,10 @@ module EbanqApi
 
     # Logout a user session
     # /api/v1/auth/logout
+    #
+    # ==== Examples
+    #
+    #   client.auth.logout
     def logout
       @client.make_request :post,
                            auth_path('logout')

@@ -36,7 +36,7 @@ end
  and then 
 
 ```ruby
-client = EbanqApi::Client.new
+client = EbanqApi::Client.new # client instance which get services_token and use it in all requests
 
 client.profile.show(1)
 client.profile.update(1, {first_name: 'John', last_name: 'Doe'})
@@ -50,8 +50,6 @@ Client instance provides a series of methods, regarding each EbanqAPI resource.
 They are: Accounts, Cards, Messages, News, Profile, Reports, 
 Requests, Settings, Templates and Transactions.
 Registration, Auth and Profile functionality available also.
-
-Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required and optional arguments for each method.
 
  |  Gem Action  |  API Endpoint  | 
  | -------- | ----- | 
@@ -123,6 +121,9 @@ Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required
  |  **[Transactions block](https://agilie.github.io/ebanq_api/EbanqApi/Transactions)** | [transactions](https://ebanqapi.docs.apiary.io/#reference/transactions/post) |  
  |  client.transactions.show(**transaction_id**) | GET /api/v1/transaction/**transaction_id** | 
  |  client.transactions.prepare(**arguments**) | POST /api/v1/transaction/prepare | 
+ 
+ Some methods from the list above accepts a hash as an argument. 
+ Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required and optional arguments for each method.
 
 ## Troubleshooting
 

@@ -57,20 +57,36 @@ Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required
  | -------- | ----- | 
  |  **Accounts Block** |  | 
  |  client.accounts.list | GET /api/v1/accounts | 
- |  client.accounts.show(**account_id**, **arguments**) | GET /api/v1/accounts/**account_id** | 
+ |  client.accounts.show(**account_id**, **options**) | GET /api/v1/accounts/**account_id** | 
  |  client.accounts.operation(**arguments**) | POST /api/v1/accounts/operation |  
  |  **Cards block** |  | 
- |  client.cards.list| GET /api/v1/cards | 
- |  client.cards.show(**card id**) | GET /api/v1/cards/**card id** | 
+ |  client.cards.list | GET /api/v1/cards | 
+ |  client.cards.show(**card_id**) | GET /api/v1/cards/**card_id** | 
  |  **Messages block** |  | 
- |  client.messages.list(**arguments**) | GET /api/v1/messages | 
+ |  client.messages.list(**options**) | GET /api/v1/messages | 
  |  client.messages.show(**message_id**) | GET /api/v1/messages/**message_id** | 
  |  client.messages.unread_count | GET /api/v1/messages/unread-count | 
- |  client.messages.outgoing(**arguments**) | GET /api/v1/messages/outgoing | 
+ |  client.messages.outgoing(**options**) | GET /api/v1/messages/outgoing | 
  |  client.messages.send_to_a_group(**arguments**) | POST /api/v1/messages/send/groups | 
  |  client.messages.send_to_administrator(**arguments**) | POST /api/v1/messages/send | 
  |  client.messages.send_to_all(**arguments**) | POST api/v1/messages/send/all | 
  |  client.messages.delete(**thread_id**) | DELETE /api/v1/messages/**thread_id** | 
+ |  **News block** |  | 
+ |  client.news.list | GET /api/v1/news | 
+ |  client.news.show(**news_id**) | GET /api/v1/news/**news_id** | 
+ |  **Reports block** |  | 
+ |  client.reports.types | GET /api/v1/reports | 
+ |  client.reports.all_accounts_balances(**options**) | GET /api/v1/reports/aab | 
+ |  client.reports.all_accounts_transactions(**options**) | GET /api/v1/reports/aat | 
+ |  client.reports.specific_account_statement(**account_id**, **options**) | GET /api/v1/reports/sas |
+ |  **Requests block** |  | 
+ |  client.reports.types | GET /api/v1/requests/ | 
+ |  client.requests.show(**transfer_request_id**) | GET /api/v1/requests/**transfer_request_id** | 
+ |  client.requests.approve(**request_id**) | POST /api/v1/requests/approve | 
+ |  client.requests.create_cft(**options**) | POST /api/v1/requests/cft | 
+ |  client.requests.create_owt(**options**) | POST /api/v1/requests/owt | 
+ |  client.requests.create_tba(**options**) | POST /api/v1/requests/tba | 
+ |  client.requests.create_tbu(**options**) | POST /api/v1/requests/tbu | 
 
 
 ## Troubleshooting

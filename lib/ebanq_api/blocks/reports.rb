@@ -82,7 +82,7 @@ module EbanqApi
     # ==== Examples
     #
     #   options = { page: 1, sort: 'amount' }
-    #   client.reports.all_accounts_transactions(options)
+    #   client.reports.all_accounts_balances(options)
     def all_accounts_balances(options = {})
       @client.make_request :get, reports_path('aab'), options
     end

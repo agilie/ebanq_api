@@ -29,7 +29,7 @@ module EbanqApi
     end
 
     # Get all transaction types and information for transfers
-    # /api/v1/transaction/prepare/
+    # /api/v1/transaction/prepare
     #
     # ==== Attributes
     #
@@ -45,7 +45,7 @@ module EbanqApi
     # ==== Examples
     #
     #   options = { user: 'sit', description: 'veniam commodo ex' }
-    #   client.transactions.prepart('Lorem anim', 48327111, -67357746, -66138775, options)
+    #   client.transactions.prepare('Lorem anim', 48327111, -67357746, -66138775, options)
     def prepare(type, account_from, account_to, amount, options = {})
       values = {
         type: type,

@@ -87,6 +87,24 @@ Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required
  |  client.requests.create_owt(**options**) | POST /api/v1/requests/owt | 
  |  client.requests.create_tba(**options**) | POST /api/v1/requests/tba | 
  |  client.requests.create_tbu(**options**) | POST /api/v1/requests/tbu | 
+ |  **Settings block** |  | 
+ |  client.settings.list | GET /api/v1/settings | 
+ |  client.settings.countries | GET /api/v1/settings/countries | 
+ |  client.settings.currencies | GET /api/v1/settings/currencies | 
+ |  client.settings.fee_types | GET /api/v1/settings/fee-types | 
+ |  client.settings.fields | GET /api/v1/settings/fields | 
+ |  client.settings.update(**arguments**) | POST /api/v1/settings/update | 
+ |  **Templates block** |  | 
+ |  client.templates.list | GET /api/v1/templates | 
+ |  client.templates.show(**template_id**) | GET /api/v1/templates/**template_id** | 
+ |  client.templates.cft_list | GET /api/v1/templates/cft | 
+ |  client.templates.owt_list | GET /api/v1/templates/owt | 
+ |  client.templates.tbu_list | GET /api/v1/templates/tbu | 
+ |  client.templates.create | PUT /api/v1/templates | 
+ |  client.templates.delete(**template_id**) | DELETE /api/v1/templates/**template_id** | 
+ |  **Transactions block** |  |  
+ |  client.transactions.show(**transaction_id**) | GET /api/v1/transaction/**transaction_id** | 
+ |  client.transactions.prepare**arguments**) | POST /api/v1/transaction/prepare | 
 
 
 ## Troubleshooting

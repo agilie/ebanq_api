@@ -122,7 +122,7 @@ Registration, Auth and Profile functionality available also.
  |  client.transactions.show(**transaction_id**) | GET /api/v1/transaction/**transaction_id** | 
  |  client.transactions.prepare(**arguments**) | POST /api/v1/transaction/prepare | 
  
- Some methods from the list above accepts a hash as an argument. 
+ Some methods from the list above accepts a hash of options as an argument. 
  Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required and optional arguments for each method.
 
 ## Troubleshooting

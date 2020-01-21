@@ -2,6 +2,7 @@
 
 require 'ebanq_api/version'
 require 'ebanq_api/client'
+require 'ebanq_api/blocks/registration'
 require 'ebanq_api/blocks/auth'
 require 'ebanq_api/blocks/profile'
 require 'ebanq_api/blocks/accounts'

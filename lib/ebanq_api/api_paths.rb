@@ -5,6 +5,7 @@ module EbanqApi
   ##
   # Forms endpoints
   module ApiPaths
+    REGISTRATION_API_PATH = 'api/v1/registration'
     AUTH_API_PATH = 'api/v1/auth'
     PROFILE_API_PATH = 'api/v1/profile'
     ACCOUNT_API_PATH = 'api/v1/accounts'
@@ -16,6 +17,11 @@ module EbanqApi
     SETTINGS_API_PATH = 'api/v1/settings'
     TEMPLATES_API_PATH = 'api/v1/templates'
     TRANSACTIONS_API_PATH = 'api/v1/transaction'
+
+    # Return /api/v1/registration path
+    def registration_path(action = '')
+      "#{REGISTRATION_API_PATH}/#{action}"
+    end
 
     # Return /api/v1/auth path
     def auth_path(action = '')

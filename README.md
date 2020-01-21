@@ -1,7 +1,7 @@
 # EbanqApi
 
-A wrapper for the EBANQ Rest API. Specification is as described in the the [developer documentation](https://ebanqapi.docs.apiary.io/#).
-This gem is a work in progress. 
+A wrapper for the EBANQ Rest API. For more detailed documentation please refer to the [Wiki](https://github.com/agilie/ebanq_api/wiki), 
+[Gem rdoc documentation](https://agilie.github.io/ebanq_api/) and [official Ebanq API documentation](https://ebanqapi.docs.apiary.io/#).
 
 ## Installation
 
@@ -19,15 +19,12 @@ Or install it yourself as:
 
     $ gem install ebanq_api
     
-## Docs
-[Gem documentation](https://agilie.github.io/ebanq_api/).
-
 ## Usage
 
 Before you start making the requests to EBANQ API provide the `base_url`, `token` and `secret` using the configuration
 wrapping. 
 
-at config/initializers/ebanq_api.rb
+Create config/initializers/ebanq_api.rb:
 
 ```ruby
 EbanqApi.config do |config|

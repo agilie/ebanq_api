@@ -8,12 +8,12 @@ This gem is a work in progress.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ebanq_api'
+gem 'ebanq_api', github: 'agilie/ebanq_api', branch: 'master'
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -43,7 +43,8 @@ client = EbanqApi::Client.new
 
 client.profile.show(1)
 client.profile.update(1, {first_name: 'John', last_name: 'Doe'})
-client.auth.request_new_password('John')
+client.cards.list
+client.news.list
 ```
 
 

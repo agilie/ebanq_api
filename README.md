@@ -44,6 +44,35 @@ client.cards.list
 client.news.list
 ```
 
+## Resources
+
+Client instance provides a series of methods, regarding each EbanqAPI resource. 
+They are: Accounts, Cards, Messages, News, Profile, Reports, 
+Requests, Settings, Templates and Transactions.
+Registration, Auth and Profile functionality available also.
+
+Check [Gem rdoc documentation](https://agilie.github.io/ebanq_api/) for required and optional arguments for each method.
+
+ |  Gem Action  |  API Endpoint  | 
+ | -------- | ----- | 
+ |  **Accounts Block** |  | 
+ |  client.accounts.list | GET /api/v1/accounts | 
+ |  client.accounts.show(**account_id**, **arguments**) | GET /api/v1/accounts/**account_id** | 
+ |  client.accounts.operation(**arguments**) | POST /api/v1/accounts/operation |  
+ |  **Cards block** |  | 
+ |  client.cards.list| GET /api/v1/cards | 
+ |  client.cards.show(**card id**) | GET /api/v1/cards/**card id** | 
+ |  **Messages block** |  | 
+ |  client.messages.list(**arguments**) | GET /api/v1/messages | 
+ |  client.messages.show(**message_id**) | GET /api/v1/messages/**message_id** | 
+ |  client.messages.unread_count | GET /api/v1/messages/unread-count | 
+ |  client.messages.outgoing(**arguments**) | GET /api/v1/messages/outgoing | 
+ |  client.messages.send_to_a_group(**arguments**) | POST /api/v1/messages/send/groups | 
+ |  client.messages.send_to_administrator(**arguments**) | POST /api/v1/messages/send | 
+ |  client.messages.send_to_all(**arguments**) | POST api/v1/messages/send/all | 
+ |  client.messages.delete(**thread_id**) | DELETE /api/v1/messages/**thread_id** | 
+
+
 ## Troubleshooting
 
 Problems? Check the [Issues](https://github.com/agilie/ebanq_api/issues) block to find 

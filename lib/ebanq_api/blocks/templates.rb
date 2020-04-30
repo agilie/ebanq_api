@@ -43,8 +43,8 @@ module EbanqApi
     #
     # ==== Examples
     #
-    #   client.templates.tbu
-    def tbu
+    #   client.templates.tbu_list
+    def tbu_list
       @client.make_request :get, templates_path('tbu')
     end
 
@@ -53,8 +53,8 @@ module EbanqApi
     #
     # ==== Examples
     #
-    #   client.templates.cft
-    def cft
+    #   client.templates.cft_list
+    def cft_list
       @client.make_request :get, templates_path('cft')
     end
 
@@ -63,8 +63,8 @@ module EbanqApi
     #
     # ==== Examples
     #
-    #   client.templates.owt
-    def owt
+    #   client.templates.owt_list
+    def owt_list
       @client.make_request :get, templates_path('owt')
     end
 

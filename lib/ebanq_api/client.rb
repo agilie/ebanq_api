@@ -54,6 +54,11 @@ module EbanqApi
       raise e
     end
 
+    # Declares an registration instance.
+    def registration
+      @registration ||= EbanqApi::Registration.new(self)
+    end
+
     # Declares an auth instance.
     def auth
       @auth ||= EbanqApi::Auth.new(self)
